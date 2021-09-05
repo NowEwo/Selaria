@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        html, body{
+            padding: 0;
+            margin: 0;
+        }
+        h1, h2, h3, h4, h5, h6, p, a{
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        * {cursor: url(../../../cursors/default.png), auto;}
+    </style>
+    <script>
+        function apply()
+        {
+            localStorage.setItem('title', document.getElementById('title_of_page').value)
+            localStorage.setItem('base_icon', document.getElementById('base_icon').value)
+        }
+    </script>
+    <link rel="stylesheet" href="../../../../apps UI/ui.css">
+</head>
+<body>
+    <p>nom de la page web:</p>
+    <input type="text" name="" id="title_of_page">
+    <p>icon de la barre des taches:</p>
+    <input type="text" name="" id="base_icon">
+    <br>
+    <button onclick="javascript:apply();">appliquer</button>
+</body>
+</html>

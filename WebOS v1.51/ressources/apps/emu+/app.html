@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>game/app</title>
+    <link rel="stylesheet" href="../../../apps UI/ui.css">
+    <script>
+        var url = new URL(document.location.href);
+        var url_vars = new URLSearchParams(url.search);
+        emulateur=url_vars.get('emulator');
+        document.getElementById('scriptpath').src=emulateur;
+    </script>
+    <script id="scriptpath" src=""></script>
+</head>
+<body>
+    <div class="app_menu">
+        <button class="app_menu_button" id="general_button_menu" onclick="javascript:document.location.href='../../../apps/Emu+.html';">menu</button>
+    </div>
+    <div id="screen"></div>
+</body>
+</html>

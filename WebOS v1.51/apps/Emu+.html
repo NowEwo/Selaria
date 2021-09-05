@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emu+</title>
+    <style>
+        html, body{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            background-color: rgb(223, 223, 223);
+        }
+        h1, h2, h3, h4, h5, h6, p, a{
+            font-style: normal;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        #autres{
+            display: none;
+        }
+        * {cursor: url(../ressources/cursors/default.png), auto;}
+    </style>
+    <link rel="stylesheet" href="../apps UI/ui.css">
+</head>
+<body>
+    <h1>Bienvenue sur Emu+</h1>
+    <p>lien du jeu/app:</p>
+    <input style="width: 100%;" type="text" name="" id="app_jeu" placeholder="chemin du jeu/app">
+    <button style="width: 100%;" onclick="javascript:document.location.href='../ressources/apps/emu+/app.html?path=' + document.getElementById('app_jeu').value;">ok</button>
+</body>
+</html>
