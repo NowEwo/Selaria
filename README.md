@@ -9,7 +9,7 @@ l'application Minecraft : https://classic.minecraft.net par Mojang
 ## mise en route
 WebOS est très simple à utiliser :
 
-le fichier a ouvrir pour s'en servir est : WebOS-v2\WebOS\index.html
+le fichier a ouvrir pour s'en servir est : WebOS-v2\index.html
 ## applications
 ### stables
 - Machine Virtuelle
@@ -33,8 +33,8 @@ le fichier a ouvrir pour s'en servir est : WebOS-v2\WebOS\index.html
 
 ## développement d'application
 
-pour créer des application sur cet OS, il faut connaitre les bases de l'html css js, un modèle d'application est présent dans WebOS-v2\WebOS\WebOS new\ressources\template\template app.html
+pour créer des application sur cet OS, il faut connaitre les bases de l'html css js, un modèle d'application est présent dans WebOS-v2\WebOS new\ressources\template\template app.html
 
-le fichier d'UI (user interface) pour les applications se trouve à WebOS-v2\WebOS\WebOS new\apps UI\ui.css
+le fichier d'UI (user interface) pour les applications se trouve à WebOS-v2\WebOS new\apps UI\ui.css
 
 /!\ le dossier 'WebOS new' peux changer de nom au fil des version /!\
