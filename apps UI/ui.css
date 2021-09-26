@@ -9,10 +9,10 @@ button{
 
     /* Light/Fill Color/Accent/Default */
 
-    background: #005FB8;
-    border-radius: 0px;
-    border: none;
-    color: white;
+    background: rgba(221, 221, 221, 0.9);
+    border-radius: 3px;
+    border: 1px solid black;
+    color: rgb(0, 0, 0);
 }
 button:hover{
     display: flex;
@@ -25,10 +25,10 @@ button:hover{
 
     /* Light/Fill Color/Accent/Secondary */
 
-    background: rgba(0, 95, 184, 0.9);
-    border-radius: 0px;
-    border: none;
-    color: white;
+    background: rgba(172, 172, 172, 0.9);
+    border-radius: 3px;
+    border: 1px solid black;
+    color: rgb(0, 0, 0);
 }
 button[disabled]{
     display: flex;
@@ -41,10 +41,10 @@ button[disabled]{
 
     /* Light/Fill Color/Accent/Disabled */
 
-    background: rgba(0, 0, 0, 0.2169);
-    border-radius: 0px;
-    color: white;
-    border: none;
+    background: rgba(207, 207, 207, 0.9);
+    border-radius: 3px;
+    color: rgb(128, 128, 128);
+    border: 1px solid rgb(88, 88, 88);
 }
 a{
     display: flex;
@@ -81,9 +81,8 @@ input[type=text]{
     /* Light/Fill Color/Control/Default */
 
     background: rgba(255, 255, 255, 0.7);
-    border-radius: 0px;
-    border: 1.5px solid rgb(141, 141, 141);
-    border-bottom: 3px solid black;
+    border-radius: 3px;
+    border: 1px solid rgb(0, 0, 0);
 }
 input[type=text]:hover{
     height: auto * 49px;
@@ -91,9 +90,8 @@ input[type=text]:hover{
     /* Light/Fill Color/Control/Default */
 
     background: rgba(255, 255, 255, 0.7);
-    border-radius: 0px;
-    border: 1.5px solid rgb(141, 141, 141);
-    border-bottom: 3px solid #003E92;
+    border-radius: 3px;
+    border: 1px solid rgb(0, 0, 0);
 }
 input[type=text][disabled]{
     height: auto * 49px;
@@ -102,7 +100,35 @@ input[type=text][disabled]{
 
     background: rgba(255, 255, 255, 0.7);
     border-radius: 0px;
-    border: 1px solid rgb(141, 141, 141);
+    border: 1px solid rgb(95, 95, 95);
+    color: grey;
+}
+input[type=password]{
+    height: auto * 49px;
+
+    /* Light/Fill Color/Control/Default */
+
+    background: rgba(255, 255, 255, 0.7);
+    border-radius: 3px;
+    border: 1px solid rgb(0, 0, 0);
+}
+input[type=password]:hover{
+    height: auto * 49px;
+
+    /* Light/Fill Color/Control/Default */
+
+    background: rgba(255, 255, 255, 0.7);
+    border-radius: 3px;
+    border: 1px solid rgb(0, 0, 0);
+}
+input[type=password][disabled]{
+    height: auto * 49px;
+
+    /* Light/Fill Color/Control/Default */
+
+    background: rgba(255, 255, 255, 0.7);
+    border-radius: 0px;
+    border: 1px solid rgb(95, 95, 95);
     color: grey;
 }
 html, body{
@@ -137,5 +163,8 @@ h1, h2, h3, h4, h5, h6, p, a{
     color: white;
     display: inline-block;
     border: none;
+}
+p{
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 * {cursor: url(../ressources/cursors/default.png), auto;}
