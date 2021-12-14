@@ -38,9 +38,7 @@
             background-color: rgb(136, 136, 136);
             overflow-x: hidden;
             overflow-y: hidden;
-            background-image: url("ressources/background/backgrounddark.png");
-            background-repeat: no-repeat;
-            background-size: cover;
+            background-image: url("ressources/background/");
         }
         .bar_menu{
             width: 100px;
@@ -48,6 +46,7 @@
             visibility: hidden;
             position: fixed;
             z-index: 3;
+            border-radius: 3px;
         }
         .bar_menu_right{
             width: 100px;
@@ -55,7 +54,7 @@
             visibility: hidden;
             position: fixed;
             z-index: 3;
-            right: 0;
+            right: 0px;
         }
         .bar_menu_all{
             width: 100px;
@@ -160,6 +159,7 @@
     <div class="bar" id="bar_id">
         <button id="bar_base_button" class="bar_button" onclick="javascript:open_menu('barmenu_O');">O</button>
         <button id="bar_base_button" class="bar_button" onclick="javascript:open_menu('barmenu_Apps');">Apps</button>
+        <button id="time_base_button" class="bar_button" style="float: right;">Impossible de trouver la date!</button>
         <button id="bar_base_button" class="bar_button" style="float: right;" onclick="javascript:open_menu('barmenu_Power');">Power</button>
     </div>
     <div class="bar_menu" id="barmenu_O">
@@ -177,6 +177,13 @@
         <button class="bar_button menu_button_long" onclick="javascript:document.location.href='ressources/veille.html';">mettre en veille</button>
         <button class="bar_button menu_button_long" onclick="javascript:document.location.href='https://www.bing.com/';">Eteindre</button>
     </div>
+    <div class="bar_menu" id="context_menu">
+        <button class="bar_button menu_button_long" onclick="javascript:open_app('apps/opendialog.html');">éxécuter</button>
+        <button class="bar_button menu_button_long" onclick="javascript:first_startup();">premier démarrage</button>
+        <button class="bar_button menu_button_long" onclick="javascript:document.location.href='ressources/veille.html';">mettre en veille</button>
+        <button class="bar_button menu_button_long" onclick="javascript:document.location.href='https://www.bing.com/';">Eteindre</button>
+        <button class="bar_button menu_button_long" onclick="javascript:open_app('apps/apropos.html');">à propos</button>
+    </div>
     <br>
     <br>
     <br>
@@ -199,7 +206,6 @@
     <br>
     <br>
     <br>
-    <br>  
     <br>
     <br>
     <br>
@@ -215,6 +221,31 @@
     <br>
     <br>
     <br>
-    <h3 style="position: relative;top: 93%;left: 93%;z-index: 105;font-family: Arial, Helvetica, sans-serif;color: white;font-weight: lighter;">WebOS v2</h3>
+    <br>
+    <br>
+    <br>
+    <br>
+    <h3 style="position: fixed;top: 93%;left: 93%;z-index: 9;font-family: Arial, Helvetica, sans-serif;color: white;font-weight: lighter;">WebOS v2</h3>
 </body>
+<script>
+    function allsecondsfunction(){
+        document.getElementById('time_base_button').innerHTML=new Date().toLocaleTimeString();
+    }
+    setInterval(allsecondsfunction, 1000);
+    document.addEventListener('contextmenu', function (e){
+        e.preventDefault();
+        var x = e.clientX;
+        var y = e.clientY;
+        var barmenu_O = document.getElementById('context_menu');
+        barmenu_O.style.left = x + 'px';
+        barmenu_O.style.top = y + 'px';
+        barmenu_O.style.display = 'block';
+        barmenu_O.style.visibility = 'visible';
+    });
+    document.addEventListener('click', function (e){
+        var barmenu_O = document.getElementById('context_menu');
+        barmenu_O.style.display = 'none';
+        barmenu_O.style.visibility = 'hidden';
+    });
+</script>
 </html>

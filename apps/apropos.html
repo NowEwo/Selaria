@@ -22,15 +22,21 @@
             text-align: center;
         }
     </style>
-    <script>
-    </script>
 </head>
 <body>
     <img src="../ressources/logo/logo.png">
     <h1>à propos</h1>
     <p><strong>crée par :</strong> yannou</p>
     <p><strong>année :</strong> 2021</p>
-    <p><strong>version du système : </strong>v1.71:stable</p>
-    <p><strong>Gestionnaire de fenêtres : </strong>WinBox</p>
+    <p><strong>version du système : </strong>v1.95:stable</p>
+    <p><strong>système de fichier : </strong>FileDisk v0.5</p>
+    <p><strong>langue : </strong><span id="LANGUAGE"></span></p>
+    <p><strong>lecteur pdf activé : </strong><span id="PDFVIEWERACTIVATED"></span></p>
+    <p><strong>connecté à internet : </strong><span id="ONLINE"></span></p>
 </body>
+<script>
+    document.getElementById("LANGUAGE").innerHTML = navigator.language;
+    document.getElementById("PDFVIEWERACTIVATED").innerHTML = navigator.pdfViewerActivated;
+    document.getElementById("ONLINE").innerHTML = navigator.onLine;
+</script>
 </html>
