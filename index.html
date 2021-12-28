@@ -8,7 +8,7 @@
     <title>webOS</title>
     <style>
         .bar{
-            background-color: rgb(61, 61, 61);
+            background-color: rgba(255, 255, 255, 0.548);
             width: 100%;
             height: 35px;
         }
@@ -18,31 +18,38 @@
         }
         .bar_button{
             text-decoration: none;
-            color: white;
-            background-color: rgb(61, 61, 61);
+            color: rgb(0, 0, 0);
+            border-radius: 5px;
+            font-weight: thin;
+            background-color: rgba(61, 61, 61, 0);
             border: none;
             height: 35px;
             border-radius: 0px;
         }
         .menu_button_long{
+            border-radius: 5px;
             width: 100%;
         }
         .bar_button:hover{
             text-decoration: none;
-            color: white;
-            background-color: rgb(90, 90, 90);
+            color: rgb(0, 0, 0);
+            background-color: rgba(148, 148, 148, 0.301);
             height: 35px;
             border: none;
         }
         body{
-            background-color: rgb(136, 136, 136);
             overflow-x: hidden;
             overflow-y: hidden;
-            background-image: url("ressources/background/");
+            background-image: url("ressources/background/bg1.png");
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
         }
         .bar_menu{
             width: 100px;
-            background-color: rgb(61, 61, 61);
+            background-color: rgba(255, 255, 255, 0.548);
+            border-radius: 5px;
             visibility: hidden;
             position: fixed;
             z-index: 3;
@@ -50,7 +57,8 @@
         }
         .bar_menu_right{
             width: 100px;
-            background-color: rgb(61, 61, 61);
+            background-color: rgba(255, 255, 255, 0.548);
+            border-radius: 5px;
             visibility: hidden;
             position: fixed;
             z-index: 3;
@@ -59,15 +67,25 @@
         .bar_menu_all{
             width: 100px;
             height: 100%;
-            background-color: rgb(61, 61, 61);
+            background-color: rgba(255, 255, 255, 0.548);
+            border-radius: 5px;
             visibility: hidden;
             position: fixed;
             z-index: 3;
             right: 0;
         }
         .winbox{
+            background-color: rgba(255, 255, 255, 0.548);
             border-radius: 5px;
             box-shadow: none;
+        }
+        #context_menu{
+            box-shadow: -1px 2px 5px 1px rgba(255, 255, 255, 0.548);
+            border-radius: 5px;
+        }
+        #context_menu_O{
+            box-shadow: -1px 2px 5px 1px rgba(255, 255, 255, 0.548);
+            border-radius: 5px;
         }
         .wb-body{
             border-radius: 5px;
@@ -104,12 +122,13 @@
             y: "center",
             top: "35px",
             root: document.body,
+            id: "app",
         });
         }
         async function load()
         {
             document.title=localStorage.getItem('title');
-            document.getElementById('bar_base_button').innerHTML=localStorage.getItem('base_icon');
+            document.getElementById('bar_base_button_O').innerHTML=localStorage.getItem('base_icon');
             var selected = "none";
         }
         function first_startup()
@@ -150,14 +169,30 @@
                     root: document.body,
                 });
                 return false;
-            }
+            };
+            if(e.keyCode == 'O'.charCodeAt(0)) {
+                open_menu('bar_menu_O');
+                return false;
+            };
+            if(e.keyCode == 'T'.charCodeAt(0)) {
+                new WinBox('Terminal', {
+                    border: "0.15em",
+                    url:'apps/terminal.html',
+                    background: localStorage.getItem('window_color'),
+                    x: "center",
+                    y: "center",
+                    top: "35px",
+                    root: document.body,
+                });
+                return false;
+            };
         });
     </script>
     <link rel="shortcut icon" href="ressources/logo/logo.ico" type="images/x-icon" />  
 </head>
 <body onload="javascript:load();">
     <div class="bar" id="bar_id">
-        <button id="bar_base_button" class="bar_button" onclick="javascript:open_menu('barmenu_O');">O</button>
+        <button id="bar_base_button_O" class="bar_button" onclick="javascript:open_menu('barmenu_O');">O</button>
         <button id="bar_base_button" class="bar_button" onclick="javascript:open_menu('barmenu_Apps');">Apps</button>
         <button id="time_base_button" class="bar_button" style="float: right;">Impossible de trouver la date!</button>
         <button id="bar_base_button" class="bar_button" style="float: right;" onclick="javascript:open_menu('barmenu_Power');">Power</button>
@@ -169,7 +204,8 @@
         <button class="bar_button menu_button_long" onclick="javascript:first_startup();">premier démarrage</button>
     </div>
     <div class="bar_menu" id="barmenu_Apps">
-        <button class="bar_button menu_button_long" onclick="javascript:open_app('apps/apropos.html');">à propos</button>
+        <button class="bar_button menu_button_long" onclick="javascript:open_app('apps/terminal.html');">Terminal</button>
+        <button class="bar_button menu_button_long" onclick="javascript:open_app('apps/apropos.html');">À propos</button>
         <button class="bar_button menu_button_long" onclick='javascript:open_vm();'>Machine Virtuelle</button>
         <button class="bar_button menu_button_long" onclick="javascript:open_app('https://classic.minecraft.net');">Minecraft</button>
     </div>
@@ -182,7 +218,11 @@
         <button class="bar_button menu_button_long" onclick="javascript:first_startup();">premier démarrage</button>
         <button class="bar_button menu_button_long" onclick="javascript:document.location.href='ressources/veille.html';">mettre en veille</button>
         <button class="bar_button menu_button_long" onclick="javascript:document.location.href='https://www.bing.com/';">Eteindre</button>
+
         <button class="bar_button menu_button_long" onclick="javascript:open_app('apps/apropos.html');">à propos</button>
+    </div>
+    <div class="bar_menu" id="context_menu_O">
+        <button class="bar_button menu_button_long" onclick="javascript:document.location.href='https://www.bing.com/';">Eteindre</button>
     </div>
     <br>
     <br>
@@ -225,7 +265,7 @@
     <br>
     <br>
     <br>
-    <h3 style="position: fixed;top: 93%;left: 93%;z-index: 9;font-family: Arial, Helvetica, sans-serif;color: white;font-weight: lighter;">WebOS v2</h3>
+    <br>
 </body>
 <script>
     function allsecondsfunction(){
@@ -233,19 +273,57 @@
     }
     setInterval(allsecondsfunction, 1000);
     document.addEventListener('contextmenu', function (e){
+        var context_menu = document.getElementById('context_menu');
+        context_menu.style.display = 'none';
+        context_menu.style.visibility = 'hidden';
+        var context_menu = document.getElementById('context_menu_O');
+        context_menu.style.display = 'none';
+        context_menu.style.visibility = 'hidden';
         e.preventDefault();
         var x = e.clientX;
         var y = e.clientY;
-        var barmenu_O = document.getElementById('context_menu');
-        barmenu_O.style.left = x + 'px';
-        barmenu_O.style.top = y + 'px';
-        barmenu_O.style.display = 'block';
-        barmenu_O.style.visibility = 'visible';
+        if(e.target.id == "bar_base_button_O"){
+            var context_menu = document.getElementById('context_menu_O');
+            context_menu.style.left = x + 'px';
+            context_menu.style.top = y + 'px';
+            context_menu.style.display = 'block';
+            context_menu.style.visibility = 'visible';
+            var window_width = window.innerWidth;
+            var window_height = window.innerHeight;
+            var context_menu_width = barmenu_O.offsetWidth;
+            var context_menu_height = barmenu_O.offsetHeight;
+            if(x + context_menu_width > window_width) {
+                context_menu.style.left = (x - context_menu_width) + 'px';
+            }
+            if(y + context_menu_height > window_height) {
+                context_menu.style.top = (y - context_menu_height) + 'px';
+            }
+        }
+        else{
+            var context_menu = document.getElementById('context_menu');
+            context_menu.style.left = x + 'px';
+            context_menu.style.top = y + 'px';
+            context_menu.style.display = 'block';
+            context_menu.style.visibility = 'visible';
+            var window_width = window.innerWidth;
+            var window_height = window.innerHeight;
+            var context_menu_width = barmenu_O.offsetWidth;
+            var context_menu_height = barmenu_O.offsetHeight;
+            if(x + context_menu_width > window_width) {
+                context_menu.style.left = (x - context_menu_width) + 'px';
+            }
+            if(y + context_menu_height > window_height) {
+                context_menu.style.top = (y - context_menu_height) + 'px';
+            }
+        } 
     });
     document.addEventListener('click', function (e){
-        var barmenu_O = document.getElementById('context_menu');
-        barmenu_O.style.display = 'none';
-        barmenu_O.style.visibility = 'hidden';
+        var context_menu = document.getElementById('context_menu');
+        context_menu.style.display = 'none';
+        context_menu.style.visibility = 'hidden';
+        var context_menu = document.getElementById('context_menu_O');
+        context_menu.style.display = 'none';
+        context_menu.style.visibility = 'hidden';
     });
 </script>
 </html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://unpkg.com/jquery.terminal/js/jquery.terminal.min.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/jquery.terminal/css/jquery.terminal.min.css"/>
+    <script>
+    </script>
+    <title>app</title>
+    </head>
+    <body>
+    </body>
+    <script>
+        $('body').terminal({
+            cat: function(width, height) {
+            const img = $('<img src="https://placekitten.com/' +
+                          width + '/' + height + '">');
+            this.echo(img);
+            
+            },
+        }, {
+            greetings: "WebOS terminal - par Yannou",
+            prompt: localStorage.getItem('username') + ">",
+        });
+    </script>
+</html>
