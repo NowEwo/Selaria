@@ -79,6 +79,13 @@
             border-radius: 5px;
             box-shadow: none;
         }
+        .wb-title{
+            color: rgb(0, 0, 0);
+            box-shadow: none;
+        }
+        .wb-body{
+            background-color: rgba(255, 255, 255, 0);
+        }
         #context_menu{
             box-shadow: -1px 2px 5px 1px rgba(255, 255, 255, 0.548);
             border-radius: 5px;
@@ -114,15 +121,16 @@
         }
         function open_app(path){
             app_window = new WinBox({
-            border: "0.15em",
-            url: path,
-            title: path,
-            background: localStorage.getItem('window_color'),
-            x: "center",
-            y: "center",
-            top: "35px",
-            root: document.body,
-            id: "app",
+                class: ["win"],
+                border: "0.15em",
+                url: path,
+                title: path,
+                background: localStorage.getItem('window_color'),
+                x: "center",
+                y: "center",
+                top: "35px",
+                root: document.body,
+                id: "app",
         });
         }
         async function load()
@@ -135,10 +143,11 @@
         {
             localStorage.setItem('title', 'webOS v2.0');
             localStorage.setItem('base_icon', 'O');
-            localStorage.setItem('window_color', 'rgb(91, 91, 91)');
+            localStorage.setItem('window_color', 'background-color: rgba(255, 255, 255, 0.548);');
             localStorage.setItem('taskbar_color', 'rgb(59, 59, 59)');
             Notification.requestPermission();
             new WinBox("premier démarrage", {
+                class: ["win"],
                 html:'<p>inititialisé</p>',
                 modal: true,
                 y:'39px',
@@ -148,18 +157,20 @@
         }
         function open_vm(){
             new WinBox('Virtual Machine', {
-            border: "0.15em",
-            url:'index.html',
-            background: localStorage.getItem('window_color'),
-            x: "center",
-            y: "center",
-            top: "35px",
-            root: document.body,
+                class: ["win"],
+                border: "0.15em",
+                url:'index.html',
+                background: localStorage.getItem('window_color'),
+                x: "center",
+                y: "center",
+                top: "35px",
+                root: document.body,
             });
         }
         document.addEventListener('keydown', function (e){
             if(e.keyCode == 'E'.charCodeAt(0)) {
                 new WinBox('Exécuter', {
+                    class: ["win"],
                     border: "0.15em",
                     url:'apps/opendialog.html',
                     background: localStorage.getItem('window_color'),
@@ -176,6 +187,7 @@
             };
             if(e.keyCode == 'T'.charCodeAt(0)) {
                 new WinBox('Terminal', {
+                    class: ["win"],
                     border: "0.15em",
                     url:'apps/terminal.html',
                     background: localStorage.getItem('window_color'),
