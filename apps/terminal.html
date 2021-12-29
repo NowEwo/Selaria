@@ -9,6 +9,15 @@
     <title>app</title>
     </head>
     <body>
+        <div id="version" style="display: none;">
+            /   /   / ////// /////   /////   /////  /   /
+            /   /   / /      /    / /     / /        / /
+            /   /   / ////// /////  /     /  /////    /
+            /   /   / /      /    / /     /       /  / /
+             /// ///  ////// /////   /////   /////  /   /
+            Coded by: Yannou
+            Windows manager: WinBox
+        </div>
     </body>
     <script>
         $('body').terminal({
@@ -16,8 +25,10 @@
             const img = $('<img src="https://placekitten.com/' +
                           width + '/' + height + '">');
             this.echo(img);
-            
             },
+            ver: function() {
+            this.echo(document.getElementById("version").innerHTML);
+            }, 
         }, {
             greetings: "WebOS terminal - par Yannou",
             prompt: localStorage.getItem('username') + ">",
