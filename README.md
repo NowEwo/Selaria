@@ -1,4 +1,4 @@
-# WebOS-v2 version
+# WebOSX version
 ![bg1](https://user-images.githubusercontent.com/77587065/147602200-223ff2ba-8eff-4b8d-bab2-e7517ac083c1.png)
 ## avant toute choses
 Cet OS ne peux en aucun cas être utilisé en tant que système principal mais ce lance dans un navigateur web comme Google Chrome ou Firefox
