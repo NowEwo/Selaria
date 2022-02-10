@@ -23,8 +23,6 @@ le fichier a ouvrir pour s'en servir est : index.html
 
 - premier démarrage
 
-- paramètres
-
 - terminal
 
 ### en développement
