@@ -1,5 +1,5 @@
 # WebOSX version
-![bg1](https://user-images.githubusercontent.com/77587065/147602200-223ff2ba-8eff-4b8d-bab2-e7517ac083c1.png)
+![bg1](https://user-images.githubusercontent.com/77587065/153430345-8f3d4f43-f769-463d-911f-b6ce5373b1ce.png)
 ## avant toute choses
 Cet OS ne peux en aucun cas être utilisé en tant que système principal mais ce lance dans un navigateur web comme Google Chrome ou Firefox
 ## Crédits
@@ -10,9 +10,7 @@ l'application Minecraft : https://classic.minecraft.net par Mojang
 WebOS est très simple à utiliser :
 
 le fichier a ouvrir pour s'en servir est : index.html
-
-![Capture d’écran (4)](https://user-images.githubusercontent.com/77587065/147611746-01174312-6e81-4110-aa5f-6708335fc5a9.png)
-
+![image](https://user-images.githubusercontent.com/77587065/153431113-6c47f4dd-64d8-470b-9355-92fc0cdf0ae4.png)
 ## applications
 ### stables
 - Machine Virtuelle
