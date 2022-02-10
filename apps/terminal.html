@@ -7,6 +7,13 @@
     <script>
     </script>
     <title>app</title>
+    <style>
+        .cmd, .cmd div, .cmd span[data-text]:not(.cmd-inverted):not(.token):not(.emoji), .terminal, .terminal-output>:not(.raw) a, .terminal-output>:not(.raw) div, .terminal-output>:not(.raw) span[data-text]:not(.token):not(.inverted):not(.terminal-inverted):not(.cmd-inverted):not(.terminal-error):not(.emoji) {
+            background-color: #0000;
+            color: var(--color,#aaa);
+            text-shadow: 0 0 calc(var(--glow)*5px) var(--color,#ccc);
+        }
+    </style>
     </head>
     <body>
         <div id="version" style="display: none;">
@@ -20,18 +27,26 @@
         </div>
     </body>
     <script>
-        $('body').terminal({
-            cat: function(width, height) {
-            const img = $('<img src="https://placekitten.com/' +
-                          width + '/' + height + '">');
-            this.echo(img);
-            },
-            ver: function() {
-            this.echo(document.getElementById("version").innerHTML);
-            }, 
-        }, {
-            greetings: "WebOS terminal - par Yannou",
-            prompt: localStorage.getItem('username') + ">",
-        });
+        var __EVAL = (s) => eval(`void (__EVAL = ${__EVAL}); ${s}`);
+            jQuery(function($, undefined) {
+                $('body').terminal(function(command) {
+                    if (command !== '') {
+                        try {
+                            var result = __EVAL(command);
+                            if (result !== undefined) {
+                                this.echo(new String(result));
+                            }
+                        } catch(e) {
+                            this.error(new String(e));
+                        }
+                    } else {
+                       this.echo('');
+                    }
+                }, {
+                    greetings: 'WebOS Terminal',
+                    name: 'WebOSTerminal',
+                    prompt: 'WebOS> '
+                });
+            });
     </script>
 </html>

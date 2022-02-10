@@ -5,12 +5,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="dist/winbox.bundle.js"></script>
-    <title>webOS</title>
+    <title>webOS X</title>
     <style>
         .bar{
-            background-color: rgba(255, 255, 255, 0.548);
+            background-color: rgba(0, 0, 0, 0.548);
+            backdrop-filter: blur(13px);
             width: 100%;
-            height: 35px;
         }
         html, body{
             height: 100%;
@@ -20,13 +20,11 @@
         }
         .bar_button{
             text-decoration: none;
-            color: rgb(0, 0, 0);
-            border-radius: 5px;
+            color: rgb(255, 255, 255);
             font-weight: thin;
             background-color: rgba(61, 61, 61, 0);
             border: none;
             height: 35px;
-            border-radius: 0px;
         }
         .menu_button_long{
             border-radius: 5px;
@@ -34,7 +32,7 @@
         }
         .bar_button:hover{
             text-decoration: none;
-            color: rgb(0, 0, 0);
+            color: rgb(255, 255, 255);
             background-color: rgba(148, 148, 148, 0.301);
             height: 35px;
             border: none;
@@ -50,7 +48,7 @@
         }
         .bar_menu{
             width: 100px;
-            background-color: rgba(255, 255, 255, 0.548);
+            background-color: rgba(0, 0, 0, 0.548);
             border-radius: 5px;
             visibility: hidden;
             position: fixed;
@@ -61,29 +59,28 @@
             width: 105px;
             height: 105px;
             border-radius: 3px;
-            background-color: rgba(255, 255, 255, 0.548);
+            background-color: rgba(0, 0, 0, 0.548);
             border: none;
             text-decoration: none;
             color: rgba(255, 255, 255, 0.493);
             font-weight: bold;
             text-align: start;
-            color: black;
+            color: rgb(255, 255, 255);
         }
         .O_menu_button:hover{
             width: 105px;
             height: 105px;
             border-radius: 3px;
-            background-color: rgba(255, 255, 255, 0.548);
+            background-color: rgba(0, 0, 0, 0.548);
             border: 5px solid rgba(0, 0, 0, 0.19);
             text-decoration: none;
             color: rgba(255, 255, 255, 0.493);
             font-weight: bold;
             text-align: start;
-            color: black;
         }
         .bar_menu_right{
             width: 100px;
-            background-color: rgba(255, 255, 255, 0.548);
+            background-color: rgba(0, 0, 0, 0.548);
             border-radius: 5px;
             visibility: hidden;
             position: fixed;
@@ -93,7 +90,7 @@
         .bar_menu_all{
             width: 100px;
             height: 100%;
-            background-color: rgba(255, 255, 255, 0.548);
+            background-color: rgba(0, 0, 0, 0.548);
             border-radius: 5px;
             visibility: hidden;
             position: fixed;
@@ -101,28 +98,29 @@
             right: 0;
         }
         .winbox{
-            background-color: rgba(255, 255, 255, 0.548);
-            border-radius: 5px;
+            background-color: rgba(0, 0, 0, 0.548);
+            backdrop-filter: blur(13px);
+            border-radius: 9px;
             box-shadow: none;
         }
         .wb-title{
-            color: rgb(0, 0, 0);
+            color: rgb(255, 255, 255);
             box-shadow: none;
         }
         .wb-body{
-            background-color: rgba(255, 255, 255, 0);
+            background-color: rgba(0, 0, 0, 0);
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
         }
         #context_menu{
-            box-shadow: -1px 2px 5px 1px rgba(255, 255, 255, 0.548);
+            box-shadow: -1px 2px 5px 1px rgba(0, 0, 0, 0.548);
             border-radius: 5px;
         }
         #context_menu_O{
-            box-shadow: -1px 2px 5px 1px rgba(255, 255, 255, 0.548);
+            box-shadow: -1px 2px 5px 1px rgba(0, 0, 0, 0.548);
             border-radius: 5px;
         }
         .wb-body{
-            border-radius: 5px;
+            border-radius: 9px;
         }
         .wb-title{
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
@@ -130,6 +128,12 @@
         h1, h2, h3, h4, h5, h6, p, a{
             font-style: normal;
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        }
+        .winbox.min{
+            border-radius: 0;
+        }
+        .winbox.max{
+            border-radius: 0;
         }
         * {cursor: url(ressources/cursors/default.png), auto;}
     </style>
@@ -162,8 +166,6 @@
         }
         async function load()
         {
-            document.title=localStorage.getItem('title');
-            document.getElementById('bar_base_button_O').innerHTML=localStorage.getItem('base_icon');
             var selected = "none";
         }
         function first_startup()
@@ -238,7 +240,6 @@
     </div>
     <div class="bar_menu" id="bar_menu_O">
         <button class="bar_button menu_button_long" onclick="javascript:open_app('apps/');">menu des apps</button>
-        <button class="bar_button menu_button_long" onclick="javascript:open_app('apps/settings.html');">paramètres</button>
         <button class="bar_button menu_button_long" onclick="javascript:open_app('apps/opendialog.html');">éxécuter</button>
         <button class="bar_button menu_button_long" onclick="javascript:first_startup();">premier démarrage</button>
     </div>
