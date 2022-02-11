@@ -4,12 +4,12 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Icon UI/Icons.css">
     <script src="dist/winbox.bundle.js"></script>
     <title>webOS X</title>
     <style>
         .bar{
             background-color: rgba(0, 0, 0, 0.548);
-            backdrop-filter: blur(13px);
             width: 100%;
         }
         html, body{
@@ -40,7 +40,7 @@
         body{
             overflow-x: hidden;
             overflow-y: hidden;
-            background-image: url("ressources/background/bg1.png");
+            background-image: url("ressources/background/bgdefault.png");
             background-repeat: no-repeat;
             background-size: cover;
             background-position: center;
@@ -49,11 +49,13 @@
         .bar_menu{
             width: 100px;
             background-color: rgba(0, 0, 0, 0.548);
+            backdrop-filter: blur(13px);
             border-radius: 5px;
             visibility: hidden;
-            position: fixed;
-            z-index: 3;
             border-radius: 3px;
+            position: fixed;
+            z-index: 951;
+
         }
         .O_menu_button{
             width: 105px;
@@ -81,10 +83,11 @@
         .bar_menu_right{
             width: 100px;
             background-color: rgba(0, 0, 0, 0.548);
+            backdrop-filter: blur(13px);
             border-radius: 5px;
             visibility: hidden;
             position: fixed;
-            z-index: 3;
+            z-index: 951;
             right: 0px;
         }
         .bar_menu_all{
@@ -131,11 +134,33 @@
         }
         .winbox.min{
             border-radius: 0;
+            z-index: 951;
         }
         .winbox.max{
             border-radius: 0;
         }
-        * {cursor: url(ressources/cursors/default.png), auto;}
+        #notes{
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            background-color: rgba(0, 0, 0, 0.548);
+            backdrop-filter: blur(13px);
+            border-radius: 9px;
+            visibility: hidden;
+            box-shadow: none;
+            font-size: large;
+            position: fixed;
+            color: white;
+            height: 159px;
+            border: none;
+            z-index: 951;
+            width: 315px;
+            resize: none;
+            right: 15px;
+            top: 41px;
+        }
+        #notes:focus-visible{
+            outline: none;
+        }
+        * {cursor: url(ressources/cursors/default.png), default}
     </style>
     <script>
         function open_menu(id)
@@ -166,6 +191,7 @@
         }
         async function load()
         {
+            document.getElementById("notes").value = localStorage.getItem('notes');
             var selected = "none";
         }
         function first_startup()
@@ -196,54 +222,29 @@
                 root: document.body,
             });
         }
-        document.addEventListener('keydown', function (e){
-            if(e.keyCode == 'E'.charCodeAt(0)) {
-                new WinBox('Exécuter', {
-                    class: ["win"],
-                    border: "0.15em",
-                    url:'apps/opendialog.html',
-                    background: localStorage.getItem('window_color'),
-                    x: "center",
-                    y: "center",
-                    top: "35px",
-                    root: document.body,
-                });
-                return false;
-            };
-            if(e.keyCode == 'O'.charCodeAt(0)) {
-                open_menu('bar_menu_O');
-                return false;
-            };
-            if(e.keyCode == 'T'.charCodeAt(0)) {
-                new WinBox('Terminal', {
-                    class: ["win"],
-                    border: "0.15em",
-                    url:'apps/terminal.html',
-                    background: localStorage.getItem('window_color'),
-                    x: "center",
-                    y: "center",
-                    top: "35px",
-                    root: document.body,
-                });
-                return false;
-            };
-        });
     </script>
     <link rel="shortcut icon" href="ressources/logo/logo.ico" type="images/x-icon" />  
 </head>
 <body onload="javascript:load();">
     <div class="bar" id="bar_id">
-        <button id="bar_base_button_O" class="bar_button" onclick="javascript:open_menu('bar_menu_O');">O</button>
-        <button id="bar_base_button" class="bar_button" onclick="javascript:open_menu('barmenu_Apps');">Apps</button>
-        <button id="time_base_button" class="bar_button" style="float: right;">Impossible de trouver la date!</button>
-        <button id="bar_base_button" class="bar_button" style="float: right;" onclick="javascript:open_menu('barmenu_Power');">Power</button>
+        <button id="bar_base_button_O" class="bar_button" onclick="javascript:open_menu('bar_menu_O');">
+            <span class="gg-components"></span>
+        </button>
+        <button id="time_base_button" class="bar_button" style="position: fixed;left: 47.9%;">Impossible de trouver la date!</button>
+        <button id="bar_base_button" class="bar_button" style="float: right;" onclick="javascript:open_menu('barmenu_Power');">
+            <span class="gg-log-off"></span>
+        </button>
+        <button id="bar_base_button" class="bar_button" style="float: right;" onclick="javascript:open_app('apps/terminal.html');">
+            <span class="gg-terminal"></span>
+        </button>
+        <button id="bar_base_button" class="bar_button" style="float: right;" onclick="javascript:open_menu('notes'); localStorage.setItem('notes' , document.getElementById('notes').value);">
+            <span class="gg-album"></span>
+        </button>
     </div>
     <div class="bar_menu" id="bar_menu_O">
         <button class="bar_button menu_button_long" onclick="javascript:open_app('apps/');">menu des apps</button>
         <button class="bar_button menu_button_long" onclick="javascript:open_app('apps/opendialog.html');">éxécuter</button>
         <button class="bar_button menu_button_long" onclick="javascript:first_startup();">premier démarrage</button>
-    </div>
-    <div class="bar_menu" id="barmenu_Apps">
         <button class="bar_button menu_button_long" onclick="javascript:open_app('apps/terminal.html');">Terminal</button>
         <button class="bar_button menu_button_long" onclick="javascript:open_app('apps/apropos.html');">À propos</button>
         <button class="bar_button menu_button_long" onclick='javascript:open_vm();'>Machine Virtuelle</button>
@@ -264,6 +265,7 @@
     <div class="bar_menu" id="context_menu_O">
         <button class="bar_button menu_button_long" onclick="javascript:document.location.href='https://www.bing.com/';">Eteindre</button>
     </div>
+    <textarea name="" id="notes" cols="30" rows="10"></textarea>
 </body>
 <script>
     function allsecondsfunction(){

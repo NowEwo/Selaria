@@ -1,0 +1,135 @@
+.gg-terminal {
+    box-sizing: border-box;
+    position: relative;
+    display: block;
+    transform: scale(var(--ggs,1));
+    width: 24px;
+    height: 20px;
+    border: 2px solid;
+    border-radius: 2px
+}
+.gg-terminal::after,
+.gg-terminal::before {
+    content: "";
+    display: block;
+    box-sizing: border-box;
+    position: absolute
+}
+.gg-terminal::before {
+    border-right: 2px solid;
+    border-bottom: 2px solid;
+    transform: rotate(-45deg);
+    width: 6px;
+    height: 6px;
+    top: 5px;
+    left: 3px
+}
+.gg-terminal::after {
+    width: 4px;
+    height: 2px;
+    background: currentColor;
+    top: 10px;
+    left: 11px
+}
+.gg-log-off {
+    box-sizing: border-box;
+    position: relative;
+    display: block;
+    border-radius: 16px;
+    border: 2px solid;
+    transform: scale(var(--ggs,1));
+    width: 16px;
+    height: 16px;
+    border-top: 2px solid transparent
+}
+.gg-log-off::before {
+    content: "";
+    display: block;
+    box-sizing: border-box;
+    position: absolute;
+    border-radius: 3px;
+    height: 8px;
+    width: 2px;
+    background: currentColor;
+    left: 5px;
+    bottom: 6px
+}
+.gg-components {
+    box-sizing: border-box;
+    position: relative;
+    display: block;
+    transform:
+        rotate(45deg)
+        scale(var(--ggs,1));
+    width: 14px;
+    height: 14px;
+    background:
+    linear-gradient(
+        to left,currentColor 10px,transparent 0)
+        no-repeat 0 0/2px 6px,
+    linear-gradient(
+        to left,currentColor 10px,transparent 0)
+        no-repeat 4px 0/2px 6px,
+    linear-gradient(
+        to left,currentColor 10px,transparent 0)
+        no-repeat 8px 0/2px 6px,
+    linear-gradient(
+        to left,currentColor 10px,transparent 0)
+        no-repeat 12px 0/2px 6px,
+    linear-gradient(
+        to left,currentColor 10px,transparent 0)
+        no-repeat 0 8px/2px 6px,
+    linear-gradient(
+        to left,currentColor 10px,transparent 0)
+        no-repeat 4px 8px/2px 6px,
+    linear-gradient(
+        to left,currentColor 10px,transparent 0)
+        no-repeat 8px 8px/2px 6px,
+    linear-gradient(
+        to left,currentColor 10px,transparent 0)
+        no-repeat 12px 8px/2px 6px
+}
+.gg-components::after,.gg-components::before {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 6px;
+    height: 2px;
+    border-top: 6px double;
+    border-bottom: 6px double
+}
+.gg-components::after {
+    right: 0
+}
+.gg-album {
+   box-sizing: border-box;
+   position: relative;
+   display: block;
+   width: 18px;
+   height: 18px;
+   transform: scale(var(--ggs,1));
+   border-left: 7px solid transparent;
+   border-right: 3px solid transparent;
+   border-bottom: 8px solid transparent;
+   box-shadow: 0 0 0 2px,
+      inset 6px 4px 0 -4px,
+      inset -6px 4px 0 -4px;
+   border-radius: 3px
+}
+.gg-album::after,
+.gg-album::before {
+   content: "";
+   display: block;
+   box-sizing: border-box;
+   position: absolute;
+   width: 2px;
+   height: 5px;
+   background: currentColor;
+   transform: rotate(46deg);
+   top: 5px;
+   right: 4px
+}
+.gg-album::after {
+   transform: rotate(-46deg);
+   right: 2px
+}
