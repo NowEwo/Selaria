@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="Icon UI/Icons.css">
     <script src="dist/winbox.bundle.js"></script>
-    <title>webOS X</title>
+    <title>Selaria</title>
     <style>
         .bar{
             background-color: rgba(0, 0, 0, 0.548);
@@ -191,8 +191,29 @@
         }
         async function load()
         {
+            var $_GET = [];
+            var parts = window.location.search.substr(1).split("&");
+            for (var i = 0; i < parts.length; i++) {
+                var temp = parts[i].split("=");
+                $_GET[decodeURIComponent(temp[0])] = decodeURIComponent(temp[1]);
+            }
             document.getElementById("notes").value = localStorage.getItem('notes');
             var selected = "none";
+            if( navigator.userAgent.match(/iPhone/i)
+             || navigator.userAgent.match(/webOS/i)
+             || navigator.userAgent.match(/Android/i)
+             || navigator.userAgent.match(/iPad/i)
+             || navigator.userAgent.match(/iPod/i)
+             || navigator.userAgent.match(/BlackBerry/i)
+             || navigator.userAgent.match(/Windows Phone/i)
+             ){
+                 if($_GET["fromphone"]=="true"){
+                     return true;
+                 }
+                 else{
+                     document.location.href="index mobile.html";
+                 }
+            }
         }
         function first_startup()
         {
