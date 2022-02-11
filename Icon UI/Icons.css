@@ -233,3 +233,67 @@
     position: absolute;
     border: 3px solid;
     bottom: 0;
+}
+.gg-feed,
+.gg-feed::after,
+.gg-feed::before {
+    display: block;
+    box-sizing: border-box;
+    background: currentColor;
+    box-shadow: 0 10px 0 0
+}
+.gg-feed {
+    margin-left: -8px;
+    margin-top: -8px;
+    position: relative;
+    transform: scale(var(--ggs,1));
+    width: 7px;
+    height: 7px;
+    border-radius: 1px
+}
+.gg-feed::after,
+.gg-feed::before {
+    content: "";
+    position: absolute;
+    border-radius: 3px;
+    width: 12px;
+    height: 2px;
+    top: 1px;
+    left: 9px;
+    opacity: .8
+}
+.gg-feed::after {
+    width: 8px;
+    top: 4px;
+    opacity: .5
+}
+.gg-arrow-left {
+    box-sizing: border-box;
+    position: relative;
+    display: block;
+    transform: scale(var(--ggs,1));
+    width: 22px;
+    height: 22px
+}
+.gg-arrow-left::after,
+.gg-arrow-left::before {
+    content: "";
+    display: block;
+    box-sizing: border-box;
+    position: absolute;
+    left: 3px
+}
+.gg-arrow-left::after {
+    width: 8px;
+    height: 8px;
+    border-bottom: 2px solid;
+    border-left: 2px solid;
+    transform: rotate(45deg);
+    bottom: 7px
+}
+.gg-arrow-left::before {
+    width: 16px;
+    height: 2px;
+    bottom: 10px;
+    background: currentColor
+}
