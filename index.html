@@ -160,6 +160,11 @@
         #notes:focus-visible{
             outline: none;
         }
+        #bar_manu_apps{
+            visibility: hidden;
+            position: absolute;
+            left: 25px;
+        }
         * {cursor: url(ressources/cursors/default.png), default}
     </style>
     <script>
@@ -187,7 +192,7 @@
                 top: "35px",
                 root: document.body,
                 id: "app",
-        });
+            });
         }
         async function load()
         {
@@ -213,6 +218,17 @@
                  else{
                      document.location.href="index mobile.html";
                  }
+            }
+            AppsList = JSON.parse(localStorage.getItem("LocalAppsList"));
+            for(Apps in AppsList){
+                Button = document.createElement("button");
+                Button.className = "bar_button";
+                Button.innerHTML = JSON.stringify(Apps).replace('"','').replace('"','');
+                Button.onclick = function(){
+                    open_app(JSON.stringify(AppsList[Apps]).replace('"','').replace('"',''));
+                }
+                Button.style.width = "100%";
+                document.getElementById("bar_menu_apps").appendChild(Button);
             }
         }
         function first_startup()
@@ -243,6 +259,15 @@
                 root: document.body,
             });
         }
+        function apps_installer_modal(){
+            new WinBox('Apps Installer', {
+                border: "0px",
+                url:'apps/Installer.html',
+                x: "center",
+                y: "center",
+                root: document.body,
+            });
+        }
     </script>
     <link rel="shortcut icon" href="ressources/logo/logo.ico" type="images/x-icon" />  
 </head>
@@ -250,6 +275,9 @@
     <div class="bar" id="bar_id">
         <button id="bar_base_button_O" class="bar_button" onclick="javascript:open_menu('bar_menu_O');">
             <span class="gg-components"></span>
+        </button>
+        <button id="bar_base_button_Apps" class="bar_button" onclick="javascript:open_menu('bar_menu_apps');">
+            <span class="gg-browser"></span>
         </button>
         <button id="time_base_button" class="bar_button" style="position: fixed;left: 47.9%;">Impossible de trouver la date!</button>
         <button id="bar_base_button" class="bar_button" style="float: right;" onclick="javascript:open_menu('barmenu_Power');">
@@ -270,6 +298,11 @@
         <button class="bar_button menu_button_long" onclick="javascript:open_app('apps/apropos.html');">À propos</button>
         <button class="bar_button menu_button_long" onclick='javascript:open_vm();'>Machine Virtuelle</button>
         <button class="bar_button menu_button_long" onclick="javascript:open_app('https://classic.minecraft.net');">Minecraft</button>
+    </div>
+    <div class="bar_menu" id="bar_menu_apps">
+        <button class="bar_button menu_button_long" onclick="javascript:apps_installer_modal();">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12ZM12 4C7.58172 4 4 7.58172 4 12C4 16.4183 7.58172 20 12 20C16.4183 20 20 16.4183 20 12C20 7.58172 16.4183 4 12 4Z" fill="currentColor" /><path fill-rule="evenodd" clip-rule="evenodd" d="M13 7C13 6.44772 12.5523 6 12 6C11.4477 6 11 6.44772 11 7V11H7C6.44772 11 6 11.4477 6 12C6 12.5523 6.44772 13 7 13H11V17C11 17.5523 11.4477 18 12 18C12.5523 18 13 17.5523 13 17V13H17C17.5523 13 18 12.5523 18 12C18 11.4477 17.5523 11 17 11H13V7Z" fill="currentColor"/></svg>
+        </button>
     </div>
     <div class="bar_menu_right" id="barmenu_Power">
         <button class="bar_button menu_button_long" onclick="javascript:document.location.href='ressources/veille.html';">mettre en veille</button>
