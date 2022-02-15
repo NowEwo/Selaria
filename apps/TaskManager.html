@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        html , body{
+            padding: 0;
+            margin: 0;
+        }
+        .app{
+            background-color: rgba(0, 0, 0, 0);
+            color: white;
+            border: none;
+            height: 35px;
+            width: 100%;
+        }
+        .app:hover{
+            background-color: rgba(0, 0, 0, 0.135);
+            color: white;
+            border: none;
+            height: 35px;
+            width: 100%;
+        }
+    </style>
+    <script src="../../dist/winbox.bundle.js"></script>
+    <link rel="stylesheet" href="../apps UI/ui.css">
+    <script>
+        if(window.location.href.startsWith("file:///")){
+            alert('Cette applcation ne fonctionnera que si votre Selaria est hébergée sur un serveur web.');
+        }
+    </script>
+</head>
+<body id="body">
+</body>
+<script>
+    setInterval(function(){
+        document.getElementById('body').innerHTML = "";
+        for(item in parent.apps){
+            document.getElementById('body').innerHTML += '<button class="app" onclick="parent.apps[\''+item+'\'].close();">'+parent.apps_title[item]+'('+item+')'+'</button>';
+        }
+    }, 1000);
+</script>
+</html>

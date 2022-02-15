@@ -160,7 +160,7 @@
         #notes:focus-visible{
             outline: none;
         }
-        #bar_manu_apps{
+        #bar_menu_apps{
             visibility: hidden;
             position: absolute;
             left: 25px;
@@ -168,6 +168,14 @@
         * {cursor: url(ressources/cursors/default.png), default}
     </style>
     <script>
+        function func() {
+        return ( ( ( 1+Math.random() ) * 0x10000 ) | 0 ).toString( 16 ).substring( 1 );
+        }
+        function Uuid(){
+            // For calling it, stitch '3' in the 3rd group
+            UUID = (func() + func() + "-" + func() + "-3" + func().substr(0,2) + "-" + func() + "-" + func() + func() + func()).toLowerCase();
+            return UUID;
+        }
         function open_menu(id)
         {
             if(document.getElementById(id).style.visibility=="hidden")
@@ -181,7 +189,9 @@
             return true;
         }
         function open_app(path){
-            app_window = new WinBox({
+            App_uuid = Uuid()
+            apps_title[App_uuid] = path
+            apps[App_uuid] = new WinBox({
                 class: ["win"],
                 border: "0.15em",
                 url: path,
@@ -191,11 +201,17 @@
                 y: "center",
                 top: "35px",
                 root: document.body,
+                Uuid: App_uuid,
                 id: "app",
+                onclose: function(){
+                    
+                }
             });
         }
         async function load()
         {
+            apps_title = {};
+            apps = {};
             var $_GET = [];
             var parts = window.location.search.substr(1).split("&");
             for (var i = 0; i < parts.length; i++) {

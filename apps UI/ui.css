@@ -42,28 +42,30 @@ h1, h2, h3, h4, h5, h6, p, a{
 .app_menu{
     background-color: rgba(0, 0, 0, 0.253);
     color: rgb(255, 255, 255);
-    height: 25px;
+    height: 35px;
     width: 100%;
     padding: 0;
     margin: 0;
 }
 .app_menu_button{
     background-color: rgba(0, 0, 0, 0);
+    transition: all 0.2s ease-in-out;
     display: inline-block;
     color: rgb(255, 255, 255);
     position: relative;
     text-align: center;
     border-radius: 0px;
-    height: 25px;
+    height: 35px;
     border: none;
 }
 .app_menu_button:hover{
     background-color: rgba(0, 0, 0, 0.253);
+    transition: all 0.2s ease-in-out;
     color: rgb(255, 255, 255);
     display: inline-block;
     text-align: center;
-    border-radius: 0px;
+    border-radius: 5px;
     border: none;
-    height: 25px;
+    height: 35px;
 }
 * {cursor: url(../ressources/cursors/default.png), auto;}
