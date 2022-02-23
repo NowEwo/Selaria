@@ -165,6 +165,32 @@
             position: absolute;
             left: 25px;
         }
+        .desktop_button{
+            text-decoration: none;
+            color: rgb(255, 255, 255);
+            font-weight: thin;
+            background-color: rgba(61, 61, 61, 0);
+            text-align: center;
+            border: none;
+            height: 95px;
+            width: 95px;
+        }
+        .desktop_button:hover{
+            text-decoration: none;
+            color: rgb(255, 255, 255);
+            background-color: rgba(148, 148, 148, 0.301);
+            text-align: center;
+            border: none;
+            height: 95px;
+            width: 95px;
+        }
+        .desktop_button span{
+            margin-left: 50%;
+            transform: translateX(-50%);
+        }
+        #desktop{
+            display: table-row;
+        }
         * {cursor: url(ressources/cursors/default.png), default}
     </style>
     <script>
@@ -335,7 +361,20 @@
     <div class="bar_menu" id="context_menu_O">
         <button class="bar_button menu_button_long" onclick="javascript:document.location.href='https://www.bing.com/';">Shutdown</button>
     </div>
+    <div class="bar_menu" id="context_menu_desktop">
+        <button class="bar_button menu_button_long" onclick="javascript:eval(to_execute);">Open</button>
+    </div>
     <textarea name="" id="notes" cols="30" rows="10"></textarea>
+    <div id="desktop">
+        <button class="desktop_button" onclick="javascript:open_app('apps/');">
+            <span class="gg-border-all"></span>
+            <p>Applications</p>
+        </button>
+        <button class="desktop_button" onclick="javascript:open_app('apps/about.html');">
+            <span class="gg-info"></span>
+            <p>About</p>
+        </button>
+    </div>
 </body>
 <script>
     function allsecondsfunction(){
@@ -354,6 +393,25 @@
         var y = e.clientY;
         if(e.target.id == "bar_base_button_O"){
             var context_menu = document.getElementById('context_menu_O');
+            context_menu.style.left = x + 'px';
+            context_menu.style.top = y + 'px';
+            context_menu.style.display = 'block';
+            context_menu.style.visibility = 'visible';
+            var window_width = window.innerWidth;
+            var window_height = window.innerHeight;
+            var context_menu_width = barmenu_O.offsetWidth;
+            var context_menu_height = barmenu_O.offsetHeight;
+            if(x + context_menu_width > window_width) {
+                context_menu.style.left = (x - context_menu_width) + 'px';
+            }
+            if(y + context_menu_height > window_height) {
+                context_menu.style.top = (y - context_menu_height) + 'px';
+            }
+        }
+        if(e.target.className == "desktop_button"){
+            var context_menu = document.getElementById('context_menu_desktop');
+            to_execute = e.target.getAttribute('onclick');
+            selected_element = e.target;
             context_menu.style.left = x + 'px';
             context_menu.style.top = y + 'px';
             context_menu.style.display = 'block';
@@ -388,6 +446,9 @@
         } 
     });
     document.addEventListener('click', function (e){
+        var context_menu = document.getElementById('context_menu_desktop');
+        context_menu.style.display = 'none';
+        context_menu.style.visibility = 'hidden';
         var context_menu = document.getElementById('context_menu');
         context_menu.style.display = 'none';
         context_menu.style.visibility = 'hidden';
