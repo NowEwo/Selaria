@@ -154,7 +154,7 @@
             z-index: 951;
             width: 315px;
             resize: none;
-            right: 15px;
+            right: 5px;
             top: 41px;
         }
         #notes:focus-visible{
@@ -202,6 +202,21 @@
             right: 5px;
             left: 5px;
             top: 41px;
+        }
+        #Notification{
+            background-color: rgba(0, 0, 0, 0.548);
+            backdrop-filter: blur(13px);
+            top: calc(35px + 5px);
+            border-radius: 13px;
+            visibility: hidden;
+            position: absolute;
+            color: white;
+            height: auto;
+            border: none;
+            z-index: 953;
+            resize: none;
+            width: 359px;
+            right: 5px;
         }
         #desktop{
             display: table-row;
@@ -328,6 +343,19 @@
         function error(error){
             document.location.href="system_page/important_error.html?error="+error;
         }
+        function notification(title, message, command){
+            notification_to_execute = command;
+            document.getElementById("Notification").style.textAlign = "center";
+            document.getElementById("Notification_title").style.fontWeight = "bold";
+            document.getElementById("Notification_title").innerHTML = title;
+            document.getElementById("Notification").style.visibility = "visible";
+            document.getElementById("Notification_message").style.fontWeight = "normal";
+            document.getElementById("Notification_message").innerHTML = message;
+            setTimeout(function(){
+                document.getElementById("Notification").style.visibility = "hidden";
+                document.getElementById("Notification").style.textAlign = "left";
+            }, 5000);
+        }
     </script>
     <link rel="shortcut icon" href="ressources/logo/logo.ico" type="images/x-icon" />  
 </head>
@@ -352,6 +380,10 @@
         </button>
     </div>
     <input type="text" name="" id="command_line" class="bar_button" ondblclick="javascript:eval(this.value);">
+    <div id="Notification" onclick="javascript:eval(notification_to_execute);">
+        <h3 id="Notification_title">Title</h3>
+        <p id="Notification_message">Message</p>
+    </div>
     <div class="bar_menu" id="bar_menu_O">
         <button class="bar_button menu_button_long" onclick="javascript:open_app('apps/');">applications menu</button>
         <button class="bar_button menu_button_long" onclick="javascript:open_app('apps/opendialog.html');">execute</button>
