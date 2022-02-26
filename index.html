@@ -188,6 +188,21 @@
             margin-left: 50%;
             transform: translateX(-50%);
         }
+        #command_line{
+            background-color: rgba(0, 0, 0, 0.548);
+            backdrop-filter: blur(13px);
+            visibility: hidden;
+            position: absolute;
+            color: white;
+            height: 35px;
+            border: none;
+            z-index: 951;
+            resize: none;
+            bottom: 0px;
+            right: 5px;
+            left: 5px;
+            top: 41px;
+        }
         #desktop{
             display: table-row;
         }
@@ -310,6 +325,9 @@
                 root: document.body,
             });
         }
+        function error(error){
+            document.location.href="system_page/important_error.html?error="+error;
+        }
     </script>
     <link rel="shortcut icon" href="ressources/logo/logo.ico" type="images/x-icon" />  
 </head>
@@ -325,13 +343,15 @@
         <button id="bar_base_button" class="bar_button" style="float: right;" onclick="javascript:open_menu('barmenu_Power');">
             <span class="gg-log-off"></span>
         </button>
-        <button id="bar_base_button" class="bar_button" style="float: right;" onclick="javascript:open_app('apps/terminal.html');">
+        
+        <button id="bar_base_button" class="bar_button" style="float: right;" onclick="javascript:open_menu('command_line');">
             <span class="gg-terminal"></span>
         </button>
         <button id="bar_base_button" class="bar_button" style="float: right;" onclick="javascript:open_menu('notes'); localStorage.setItem('notes' , document.getElementById('notes').value);">
             <span class="gg-album"></span>
         </button>
     </div>
+    <input type="text" name="" id="command_line" class="bar_button" ondblclick="javascript:eval(this.value);">
     <div class="bar_menu" id="bar_menu_O">
         <button class="bar_button menu_button_long" onclick="javascript:open_app('apps/');">applications menu</button>
         <button class="bar_button menu_button_long" onclick="javascript:open_app('apps/opendialog.html');">execute</button>
@@ -355,7 +375,6 @@
         <button class="bar_button menu_button_long" onclick="javascript:first_startup();">first startup</button>
         <button class="bar_button menu_button_long" onclick="javascript:document.location.href='ressources/veille.html';">put to sleep</button>
         <button class="bar_button menu_button_long" onclick="javascript:document.location.href='https://www.bing.com/';">Shutdown</button>
-
         <button class="bar_button menu_button_long" onclick="javascript:open_app('apps/apropos.html');">About</button>
     </div>
     <div class="bar_menu" id="context_menu_O">
