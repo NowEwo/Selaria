@@ -263,6 +263,10 @@
         }
         async function load()
         {
+            if(localStorage.getItem('localStorageVerification') == undefined)
+            {
+                document.location.href="system_page/important_error.html?error=localStorageCorrupted";
+            }
             apps_title = {};
             apps = {};
             var $_GET = [];
@@ -376,7 +380,7 @@
             <span class="gg-album"></span>
         </button>
     </div>
-    <input type="text" name="" id="command_line" class="bar_button" ondblclick="javascript:eval(this.value);">
+    <input type="text" name="" id="command_line" class="bar_button" onkeydown="var keyCode = ('which' in event) ? event.which : event.keyCode;if(keyCode == 13){javascript:eval(this.value);};">
     <div id="Notification" onclick="javascript:eval(notification_to_execute);">
         <h3 id="Notification_title">Title</h3>
         <p id="Notification_message">Message</p>
