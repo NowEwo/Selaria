@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Obbe</title>
+    <link rel="stylesheet" href="../apps UI/ui.css">
+    <style>
+        html , body{
+            background-image: url("../ressources/background/bgdefault.png");
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+        #Container{
+            backdrop-filter: blur(9px);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            border-radius: 15px;
+            position: absolute;
+            text-align: center;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            padding: 13px;
+            height: 75%;
+            width: 59%;
+            background-color: rgba(0, 0, 0, 0.317);
+            overflow: hidden;
+        }
+        button{
+            background-color: rgba(0, 0, 0, 0.317);
+            border: none;
+            border-radius: 15px;
+            color: white;
+            padding: 10px;
+            margin: 10px;
+        }
+        button:hover{
+            background-color: rgba(71, 149, 253, 0.317);
+            border: none;
+            border-radius: 15px;
+            color: white;
+            padding: 10px;
+            margin: 10px;
+        }
+        input{
+            background-color: rgba(0, 0, 0, 0.317);
+            border: none;
+            border-radius: 15px;
+            color: white;
+            padding: 10px;
+            margin: 10px;
+        }
+        button[Blue]{
+            background-color: rgb(59, 95, 255);
+            border: none;
+            border-radius: 15px;
+            color: white;
+            padding: 10px;
+            margin: 10px;
+        }
+        button[Blue]:hover{
+            background-color: rgb(71, 151, 253);
+            border: none;
+            border-radius: 15px;
+            color: white;
+            padding: 10px;
+            margin: 10px;
+        }
+        *:focus-visible{
+            outline: none;
+        }
+    </style>
+    <script>
+        var Tab = 1;
+        function NextTab(){
+            Tab = Tab + 1;
+            if(Tab > 3){
+                localStorage.setItem("PasswordOnStartup", document.getElementById("Show_Login_Screen").value);
+                localStorage.setItem("Username", document.getElementById("Username").value);
+                localStorage.setItem("Password", document.getElementById("Password").value);
+                localStorage.setItem("Configured", "true");
+                document.getElementById("Container").innerHTML = "<h1>The OBBE is over !</h1><br><h3>Please patient ...</h3>";
+                setTimeout(function(){
+                    document.location.href = "../index.html";
+                }, 3001);
+            }
+            else{
+                document.getElementById("Tab" + Tab).style.display = "block";
+                document.getElementById("Tab" + (Tab - 1)).style.display = "none";
+            }
+        }
+        function PreviousTab(){
+            Tab = Tab - 1;
+            if(Tab < 1){
+                document.getElementById("Tab" + Tab).style.display = "none";
+                document.getElementById("Tab" + (Tab + 1)).style.display = "block";
+            }
+            else{
+                document.getElementById("Tab" + Tab).style.display = "block";
+                document.getElementById("Tab" + (Tab + 1)).style.display = "none";
+            }
+        }
+        function AddTheApp(){
+            LocalAppsList = localStorage.getItem("LocalAppsList");
+            if(LocalAppsList == null){
+                LocalAppsList = {};
+            }else{
+                LocalAppsList = JSON.parse(LocalAppsList);
+            }
+            app_name = document.getElementById('app_name').value;
+            app_url = document.getElementById('app_url').value;
+
+            if(app_name != "" && app_url != ""){
+                LocalAppsList[app_name] = app_url;
+                localStorage.setItem("LocalAppsList", JSON.stringify(LocalAppsList));
+                document.getElementById('app_name').value = "";
+                document.getElementById('app_url').value = "";
+                alert("Application bien ajoutée !");
+            }else{
+                alert("Please enter all the information !");
+            }
+        }
+    </script>
+</head>
+<body>
+    <div id="Container">
+        <div id="Tab1" style="display: block;">
+            <h1>Is time to configure your computer !</h1>
+            <h3>Configure your computer is very important to have a good experience with this Operating System !</h3>
+            <button Blue onclick="javascript:NextTab();">Got it !</button>
+        </div>
+        <div id="Tab2" style="display: none;">
+            <h1>Login informations !</h1>
+            <h3>You need to create a username and password for a better experience !</h3>
+            <input type="text" name="" id="Username" placeholder="Username">
+            <br>
+            <input type="password" name="" id="Password" placeholder="Password">
+            <br>
+            <input type="password" name="" id="Password_Confirm" placeholder="Confirm The Password">
+            <br>
+            <p>Show the login on startup ?</p>
+            <input type="checkbox" name="" id="Show_Login_Screen">
+            <br>
+            <button onclick="javascript:PreviousTab();">Back !</button>
+            <button Blue onclick="javascript:if(document.getElementById('Password').value!=document.getElementById('Password_Confirm').value){alert('The passwords are not the same');}else{NextTab();}">Next !</button>
+        </div>
+        <div id="Tab3" style="display: none;">
+            <h1>Add applications !</h1>
+            <h3>You can pre-install application for use her after configuration !</h3>
+            <input type="text" name="" id="app_name" placeholder="App name">
+            <input type="text" name="" id="app_url" placeholder="App url">
+            <br>
+            <button onclick="javascript:AddTheApp();">Create the app</button>
+            <br>
+            <button onclick="javascript:PreviousTab();">Back !</button>
+            <button Blue onclick="javascript:NextTab();">Next !</button>
+        </div>
+</body>
+</html>

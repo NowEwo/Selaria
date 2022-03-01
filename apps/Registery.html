@@ -38,6 +38,11 @@
 <body id="body">
 </body>
 <script>
+    Password = prompt("Entrez votre mot de passe pour accéder à cette application .");
+    if(Password!=localStorage.getItem("Password")){
+        alert("Mot de passe incorrect !");
+        document.location.href = "../system_page/blank.html";
+    }
     for(Items in localStorage){
         KeyElement = document.createElement('button');
         KeyElement.className = 'Element';

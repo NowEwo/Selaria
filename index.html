@@ -263,15 +263,17 @@
         }
         async function load()
         {
-            if(localStorage.getItem('localStorageVerification') == undefined)
-            {
+            if(localStorage.getItem('localStorageVerification') == undefined){
                 document.location.href="system_page/important_error.html?error=localStorageCorrupted";
+            }
+            if(localStorage.getItem('Configured') != "true"){
+                document.location.href="system_page/Obbe.html";
             }
             apps_title = {};
             apps = {};
             var $_GET = [];
             var parts = window.location.search.substr(1).split("&");
-            for (var i = 0; i < parts.length; i++) {
+            for (var i = 0; i < parts.length; i++){
                 var temp = parts[i].split("=");
                 $_GET[decodeURIComponent(temp[0])] = decodeURIComponent(temp[1]);
             }
@@ -302,6 +304,11 @@
                 }
                 Button.style.width = "100%";
                 document.getElementById("bar_menu_apps").appendChild(Button);
+            }
+            if(localStorage.getItem('PasswordOnStartup')=="on"){
+                if($_GET["Connected"]=="False"){
+                    document.location.href="system_page/Login.html";
+                }
             }
         }
         function first_startup()
