@@ -81,13 +81,12 @@
         function NextTab(){
             Tab = Tab + 1;
             if(Tab > 3){
-                localStorage.setItem("PasswordOnStartup", document.getElementById("Show_Login_Screen").value);
                 localStorage.setItem("Username", document.getElementById("Username").value);
                 localStorage.setItem("Password", document.getElementById("Password").value);
                 localStorage.setItem("Configured", "true");
                 document.getElementById("Container").innerHTML = "<h1>The OBBE is over !</h1><br><h3>Please patient ...</h3>";
                 setTimeout(function(){
-                    document.location.href = "../index.html";
+                    document.location.href = "../index.html?Command=notification('Welcome to your computer , ' + localStorage.getItem('Username') + ' !', 'Thanks to use Selaria !', '')";
                 }, 3001);
             }
             else{
@@ -143,9 +142,6 @@
             <input type="password" name="" id="Password" placeholder="Password">
             <br>
             <input type="password" name="" id="Password_Confirm" placeholder="Confirm The Password">
-            <br>
-            <p>Show the login on startup ?</p>
-            <input type="checkbox" name="" id="Show_Login_Screen">
             <br>
             <button onclick="javascript:PreviousTab();">Back !</button>
             <button Blue onclick="javascript:if(document.getElementById('Password').value!=document.getElementById('Password_Confirm').value){alert('The passwords are not the same');}else{NextTab();}">Next !</button>
