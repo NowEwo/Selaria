@@ -9,6 +9,14 @@
     </style>
     <script src="../../dist/winbox.bundle.js"></script>
     <link rel="stylesheet" href="../apps UI/ui.css">
+    <script>
+        var $_GET = [];
+        var parts = window.location.search.substr(1).split("&");
+        for (var i = 0; i < parts.length; i++){
+            var temp = parts[i].split("=");
+            $_GET[decodeURIComponent(temp[0])] = decodeURIComponent(temp[1]);
+        }
+    </script>
 </head>
 <body>
 </body>

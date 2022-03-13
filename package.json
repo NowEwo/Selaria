@@ -51,6 +51,7 @@
   ],
   "readme": "README.md",
   "dependencies": {
+    "bootstrap": "^5.1.3",
     "http-server": "^14.1.0",
     "idb.filesystem.js": "0.0.8",
     "monaco-editor": "^0.32.1",

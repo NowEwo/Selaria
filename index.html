@@ -250,7 +250,7 @@
             apps[App_uuid] = new WinBox({
                 class: ["win"],
                 border: "0.15em",
-                url: path,
+                url: path+"?UUID="+App_uuid,
                 title: path,
                 background: localStorage.getItem('window_color'),
                 x: "center",
@@ -258,8 +258,14 @@
                 top: "35px",
                 root: document.body,
                 Uuid: App_uuid,
-                id: "app",
+                id: "App_"+App_uuid,
             });
+        }
+        function AppToBackground(Uuid){
+            apps[Uuid].hide();
+        }
+        function AppDisableBackground(Uuid){
+            apps[Uuid].show();
         }
         async function load()
         {
