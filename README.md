@@ -8,30 +8,21 @@ le système de fenêtre WinBox a été crée par https://nextapps-de.github.io/w
 
 l'application Minecraft : https://classic.minecraft.net par Mojang
 ## mise en route
-WebOS est très simple à utiliser :
+Selaria est très simple à utiliser :
 
 le fichier a ouvrir pour s'en servir est : index.html
 ![image](https://user-images.githubusercontent.com/77587065/153614446-db48c415-2f03-43ed-9b6f-8203aeee7c6c.png)
-## applications
-### stables
-- Machine Virtuelle
 
-- à propos
+## Comparaison avec Selaria Lite
 
-- menu des apps
-
-- éxécuter
-
-- premier démarrage
-
-- paramètres
-
-- terminal
-
-### en développement
-- internal browser
-
-- emu+
+|Fonctionnalité|Selaria Lite|Selaria|
+|:---|:---|:---|
+|Applications intégrées|~|Oui|
+|Effets de transparences|Non(Sauf OBBE)|Oui|
+|Animations|Oui|Oui|
+|OBBE|Oui|Oui|
+|Terminal|Oui|Oui|
+|Librairies optionnelles|~|Oui|
 
 ## développement d'application
 
