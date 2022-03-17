@@ -11,7 +11,7 @@ l'application Minecraft : https://classic.minecraft.net par Mojang
 Selaria est très simple à utiliser :
 
 le fichier a ouvrir pour s'en servir est : index.html
-![image](https://user-images.githubusercontent.com/77587065/153614446-db48c415-2f03-43ed-9b6f-8203aeee7c6c.png)
+![image](https://user-images.githubusercontent.com/77587065/158867478-72ad6bee-730c-4e26-916d-305803ea9767.png)
 
 ## Comparaison avec Selaria Lite
 
