@@ -70,4 +70,12 @@ h1, h2, h3, h4, h5, h6, p, a{
     border: none;
     height: 35px;
 }
+input{
+    background-color: rgba(0, 0, 0, 0.317);
+    border: none;
+    border-radius: 15px;
+    color: white;
+    padding: 10px;
+    margin: 10px;
+}
 * {cursor: url(../ressources/cursors/default.png), auto;}

@@ -24,7 +24,7 @@ function open_app(path){
     apps[App_uuid] = new WinBox({
         class: ["win"],
         border: "0.15em",
-        url: path+"?UUID="+App_uuid,
+        url: path+"?app_id="+App_uuid,
         title: path,
         background: localStorage.getItem('window_color'),
         x: "center",
@@ -48,6 +48,7 @@ async function load()
     }else if(localStorage.getItem('Configured') != "true"){
         document.location.href="system_page/Obbe.html";
     }
+    ShowUserControl("OFF");
     apps_title = {};
     apps = {};
     var $_GET = [];
@@ -223,3 +224,42 @@ document.addEventListener('click', function (e){
     context_menu.style.display = 'none';
     context_menu.style.visibility = 'hidden';
 });
+function SetBackground(ID , STATE){
+    if(STATE == "ON"){
+        document.getElementById("App_"+ID).style.display = "none";
+    }
+    else{
+        document.getElementById("App_"+ID).style.display = "block";
+    }
+}
+function InstallApp(app_name , app_url){
+    LocalAppsList = localStorage.getItem("LocalAppsList");
+    if(LocalAppsList == null){
+        LocalAppsList = {};
+    }else{
+        LocalAppsList = JSON.parse(LocalAppsList);
+    }
+    LocalAppsList[app_name] = app_url;
+    localStorage.setItem("LocalAppsList", JSON.stringify(LocalAppsList));
+}
+function ShowUserControl(CANCELABLE){
+    UserControlState = "WAITING";
+    document.getElementById("UserControl").style.display = "block";
+    if(CANCELABLE == "ON"){
+        document.getElementById("UserControlCancel").style.display = "block";
+    }
+    else{
+        document.getElementById("UserControlCancel").style.display = "none";
+    }
+}
+function UserControlValidation(){
+    if(document.getElementById("UserControlPassword").value != localStorage.getItem("Password")){
+        document.getElementById("UserControlInvalidPassword").style.display = "block";
+    }
+    else{
+        document.getElementById("UserControlInvalidPassword").style.display = "none";
+        document.getElementById("UserControl").style.display = "none";
+        UserControlState = "VALIDATED";
+    }
+}
+var UserControlState = "OFF";

@@ -16,6 +16,7 @@
             var temp = parts[i].split("=");
             $_GET[decodeURIComponent(temp[0])] = decodeURIComponent(temp[1]);
         }
+        parent.InstallApp("Test", document.location.href);
     </script>
 </head>
 <body>
