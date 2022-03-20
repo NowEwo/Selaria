@@ -78,7 +78,7 @@
     </div>
     <div id="UserControl" style="display: none;">
         <div id="UserControlContainer">
-            <h1>Votre mot de passe est requis pour continuer .</h1>
+            <h1 id="UserControlText">Votre mot de passe est requis pour continuer .</h1>
             <input type="password" name="" id="UserControlPassword" placeholder="Password" UserControl>
             <button id="UserControlGo" onclick="javascript:UserControlValidation();" UserControl>Valider</button>
             <button id="UserControlCancel" onclick="javascript:document.getElementById('UserControl').style.display='none';UserControlValidation='CANCELED';" UserControl>Annuler</button>

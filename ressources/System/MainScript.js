@@ -48,7 +48,9 @@ async function load()
     }else if(localStorage.getItem('Configured') != "true"){
         document.location.href="system_page/Obbe.html";
     }
-    ShowUserControl("OFF");
+    if(localStorage.getItem('Password') != ""){
+        ShowUserControl("OFF" , "Login");
+    }
     apps_title = {};
     apps = {};
     var $_GET = [];
@@ -242,8 +244,9 @@ function InstallApp(app_name , app_url){
     LocalAppsList[app_name] = app_url;
     localStorage.setItem("LocalAppsList", JSON.stringify(LocalAppsList));
 }
-function ShowUserControl(CANCELABLE){
+function ShowUserControl(CANCELABLE , APPNAME="Unknown"){
     UserControlState = "WAITING";
+    document.getElementById("UserControlText").innerHTML = "The application "+APPNAME+" asks for your password to access this content .";
     document.getElementById("UserControl").style.display = "block";
     if(CANCELABLE == "ON"){
         document.getElementById("UserControlCancel").style.display = "block";

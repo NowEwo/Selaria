@@ -237,6 +237,7 @@ h1, h2, h3, h4, h5, h6, p, a{
 #UserControl{
     background-color: rgba(0, 0, 0, 0.391);
     backdrop-filter: blur(13px);
+    animation: fadeInAnimation 0.5s;
     position: absolute;
     z-index: 999999999;
     height: 100%;
@@ -293,5 +294,13 @@ input[Selaria]{
     color: white;
     padding: 9px;
     margin: 9px;
+}
+@keyframes fadeInAnimation {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
 }
 * {cursor: url(../cursors/default.png), default}

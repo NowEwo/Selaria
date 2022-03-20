@@ -71,8 +71,19 @@
             padding: 10px;
             margin: 10px;
         }
+        .Tab{
+            animation: fadeInAnimation 0.5s;
+        }
         *:focus-visible{
             outline: none;
+        }
+        @keyframes fadeInAnimation {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
         }
     </style>
     <script>
@@ -128,12 +139,12 @@
 </head>
 <body>
     <div id="Container">
-        <div id="Tab1" style="display: block;">
+        <div id="Tab1" style="display: block;" class="Tab">
             <h1>Is time to configure your computer !</h1>
             <h3>Configure your computer is very important to have a good experience with this Operating System !</h3>
             <button Blue onclick="javascript:NextTab();">Got it !</button>
         </div>
-        <div id="Tab2" style="display: none;">
+        <div id="Tab2" style="display: none;" class="Tab">
             <h1>Login informations !</h1>
             <h3>You need to create a username and password for a better experience !</h3>
             <input type="text" name="" id="Username" placeholder="Username">
@@ -145,7 +156,7 @@
             <button onclick="javascript:PreviousTab();">Back !</button>
             <button Blue onclick="javascript:if(document.getElementById('Password').value!=document.getElementById('Password_Confirm').value){alert('The passwords are not the same');}else{NextTab();}">Next !</button>
         </div>
-        <div id="Tab3" style="display: none;">
+        <div id="Tab3" style="display: none;" class="Tab">
             <h1>Add applications !</h1>
             <h3>You can pre-install application for use her after configuration !</h3>
             <input type="text" name="" id="app_name" placeholder="App name">
