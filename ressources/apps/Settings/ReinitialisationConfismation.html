@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        button{
+            background-color: rgba(0, 0, 0, 0.315);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 10px;
+            margin: 10px;
+            cursor: pointer;
+        }
+        button:hover{
+            background-color: rgba(0, 0, 0, 0.351);
+            color: white;
+        }
+        *{
+            text-align: center;
+        }
+    </style>
+    <script src="../../dist/winbox.bundle.js"></script>
+    <link rel="stylesheet" href="../../../apps UI/ui.css">
+    <script>
+        var $_GET = [];
+        var parts = window.location.search.substr(1).split("&");
+        for (var i = 0; i < parts.length; i++){
+            var temp = parts[i].split("=");
+            $_GET[decodeURIComponent(temp[0])] = decodeURIComponent(temp[1]);
+        }
+    </script>
+</head>
+<body>
+    <h1>Attention</h1>
+    <p>Vous allez perdre toutes vos données personnelles. Êtes-vous sûr de vouloir continuer ?</p>
+    <button onclick="parent.ShowUserControl('ON' , 'Settings' , 'localStorage.clear();document.location.href=document.location.href;');">Réinitialiser</button>
+</body>
+<script>
+</script>
+</html>

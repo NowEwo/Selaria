@@ -244,7 +244,8 @@ function InstallApp(app_name , app_url){
     LocalAppsList[app_name] = app_url;
     localStorage.setItem("LocalAppsList", JSON.stringify(LocalAppsList));
 }
-function ShowUserControl(CANCELABLE , APPNAME="Unknown"){
+function ShowUserControl(CANCELABLE , APPNAME="Unknown" , COMMAND=""){
+    CommandToExecuteUserControl = COMMAND;
     UserControlState = "WAITING";
     document.getElementById("UserControlText").innerHTML = "The application "+APPNAME+" asks for your password to access this content .";
     document.getElementById("UserControl").style.display = "block";
@@ -258,11 +259,14 @@ function ShowUserControl(CANCELABLE , APPNAME="Unknown"){
 function UserControlValidation(){
     if(document.getElementById("UserControlPassword").value != localStorage.getItem("Password")){
         document.getElementById("UserControlInvalidPassword").style.display = "block";
+        document.getElementById("UserControlPassword").value = "";
     }
     else{
         document.getElementById("UserControlInvalidPassword").style.display = "none";
         document.getElementById("UserControl").style.display = "none";
+        document.getElementById("UserControlPassword").value = "";
         UserControlState = "VALIDATED";
+        eval(CommandToExecuteUserControl);
     }
 }
 var UserControlState = "OFF";

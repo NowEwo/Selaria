@@ -9,7 +9,10 @@
     <link rel="stylesheet" href="Icon UI/Icons.css">
     <script src="dist/winbox.bundle.js"></script>
     <title>Selaria</title>
-    <link rel="shortcut icon" href="ressources/logo/logo.ico" type="images/x-icon" />  
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.1/themes/base/jquery-ui.css">
+    <link rel="shortcut icon" href="ressources/logo/logo.ico" type="images/x-icon" />
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
 </head>
 <body onload="javascript:load();">
     <div class="bar" id="bar_id">
@@ -51,7 +54,7 @@
         </button>
     </div>
     <div class="bar_menu_right" id="barmenu_Power">
-        <button class="bar_button menu_button_long" onclick="javascript:document.location.href='https://www.bing.com/';">Shutdown</button>
+        <button class="bar_button menu_button_long" onclick="javascript:document.getElementById('Screensaver').style.display = 'block';">Screensaver</button>
     </div>
     <div class="bar_menu" id="context_menu">
         <button class="bar_button menu_button_long" onclick="javascript:open_app('apps/opendialog.html');">execute</button>
@@ -80,10 +83,12 @@
         <div id="UserControlContainer">
             <h1 id="UserControlText">Votre mot de passe est requis pour continuer .</h1>
             <input type="password" name="" id="UserControlPassword" placeholder="Password" UserControl>
-            <button id="UserControlGo" onclick="javascript:UserControlValidation();" UserControl>Valider</button>
+            <button id="UserControlGo" onclick="javascript:UserControlValidation();" UserControl>O.K.</button>
             <button id="UserControlCancel" onclick="javascript:document.getElementById('UserControl').style.display='none';UserControlValidation='CANCELED';" UserControl>Annuler</button>
             <p style="color: red;display: none;" id="UserControlInvalidPassword">Mot de passe incorrect .</p>
         </div>
+    </div>
+    <div id="Screensaver" style="display: none;cursor: none;" onclick="javascript:this.style.display='none';ShowUserControl('OFF' , 'Login');">
     </div>
 </body>
 </html>
