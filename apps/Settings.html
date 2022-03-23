@@ -18,8 +18,8 @@
             border-radius: 5px;
             padding: 10px;
             margin: 10px;
-            height: 93%;
             width: 359px;
+            bottom: 5px;
         }
         button{
             background-color: rgba(0, 0, 0, 0);
@@ -44,6 +44,10 @@
             background-color: rgba(0, 0, 0, 0.315);
             color: white;
         }
+        .Category:focus{
+            background-color: rgba(0, 0, 0, 0.153);
+            color: white;
+        }
         #TabContainer{
             height: 93%;
             width: calc(100% - 395px);
@@ -53,6 +57,7 @@
             border-radius: 5px;
             padding: 10px;
             margin: 10px;
+            bottom: 5px;
         }
         .Tab{
             display: none;
@@ -81,25 +86,25 @@
 </head>
 <body>
     <div id="Categories">
-        <button class="Category" id="UserInformations">Informations de l'utilisateur</button>
+        <button class="Category" id="UserInformations">User informations</button>
         <br>
-        <button class="Category" id="Personnalisation">Personnatisation</button>
-        <br>
-        <button class="Category" id="Avanced">Avancé</button>
+        <button class="Category" id="Avanced">Advanced</button>
     </div>
     <div id="TabContainer">
         <div class="Tab" id="UserInformationsTab">
-            <h1>Informations de l'utilisateur</h1>
-        </div>
-        <div class="Tab" id="PersonnalisationTab">
-            <h1>Personnatisation</h1>
+            <h1>User information</h1>
+            <p>Username : <span id="Username"></span></p>
+            <p>Password : <span id="Password" onclick="javascript:document.getElementById('Password').innerHTML = localStorage.getItem('Password');"><strong>[Show password]</strong></span></p>
         </div>
         <div class="Tab" id="AvancedTab">
-            <h1>Avancé</h1>
-            <button onclick="parent.open_app('ressources/apps/Settings/ReinitialisationConfismation.html')">Réinitialiser</button>
+            <h1>Advanced</h1>
+            <button onclick="parent.open_app('ressources/apps/Settings/ReinitialisationConfismation.html')">Restore to factory settings</button>
+            <br>
+            <button onclick="parent.open_app('apps/Registery.html')">Open the registery</button>
         </div>
     </body>
     </div>
 <script>
+    document.getElementById("Username").innerHTML = localStorage.getItem("Username");
 </script>
 </html>

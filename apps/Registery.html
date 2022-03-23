@@ -10,19 +10,20 @@
             padding: 0;
             margin: 0;
             margin-bottom: 5px;
+            overflow: hidden;
         }
-        .Element{
+        button{
             background-color: rgba(0, 0, 0, 0);
+            border-radius: 5px;
             color: white;
-            height: fit-content;
+            height: 49px;
             border: none;
             width: 100%;
+            margin: 5px;
         }
-        .Element:hover{
-            background-color: rgba(0, 0, 0, 0.135);
+        button:hover{
+            background-color: rgba(0, 0, 0, 0.315);
             color: white;
-            border: none;
-            width: 100%;
         }
     </style>
     <script src="../../dist/winbox.bundle.js"></script>
@@ -38,15 +39,36 @@
 <body id="body">
 </body>
 <script>
-    Password = prompt("Entrez votre mot de passe pour accéder à cette application .");
-    if(Password!=localStorage.getItem("Password")){
-        alert("Mot de passe incorrect !");
-        document.location.href = "../system_page/blank.html";
+    var $_GET = [];
+    var parts = window.location.search.substr(1).split("&");
+    for (var i = 0; i < parts.length; i++){
+        var temp = parts[i].split("=");
+        $_GET[decodeURIComponent(temp[0])] = decodeURIComponent(temp[1]);
+    }
+    if($_GET['Verification'] != "False"){
+        Password = prompt("Entrez votre mot de passe pour accéder à cette application .");
+        if(Password!=localStorage.getItem("Password")){
+            alert("Mot de passe incorrect !");
+            document.location.href = "../system_page/blank.html";
+        }
+    }
+    else{
+        console.log(true);
     }
     for(Items in localStorage){
         KeyElement = document.createElement('button');
         KeyElement.className = 'Element';
         KeyElement.innerHTML = Items+":"+localStorage.getItem(Items);
+        KeyElement.oncontextmenu = function(){
+            Confirmation = confirm("Voulez-vous supprimer cette clé ?");
+            if(Confirmation){
+                localStorage.removeItem(this.innerHTML.split(":")[0]);
+            }
+        }
+        KeyElement.onclick = function(){
+            NewValue = prompt("Enter a new value for "+this.innerHTML.split(":")[0]+" :");
+            localStorage.setItem(this.innerHTML.split(":")[0],NewValue);
+        }
         document.getElementById('body').appendChild(KeyElement);
     }
 </script>

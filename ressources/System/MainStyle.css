@@ -30,7 +30,6 @@ html, body{
 body{
     overflow-x: hidden;
     overflow-y: hidden;
-    background-image: url("../background/bgdefault.png");
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -305,6 +304,19 @@ input[Selaria]{
     height: 100%;
     width: 100%;
     top: 0;
+}
+#StartupScreenEffect{
+    background-color: rgba(0, 0, 0);
+    backdrop-filter: blur(13px);
+    animation: fadeInAnimation 0.5s;
+    position: absolute;
+    z-index: 999999999;
+    height: 100%;
+    width: 100%;
+    top: 0;
+}
+#StartupScreenEffect *{
+    text-align: center;
 }
 @keyframes fadeInAnimation {
     0% {

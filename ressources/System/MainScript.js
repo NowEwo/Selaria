@@ -51,6 +51,7 @@ async function load()
     if(localStorage.getItem('Password') != ""){
         ShowUserControl("OFF" , "Login");
     }
+    document.body.style.backgroundImage = "url('"+localStorage.getItem('BackgroundSelected')+"')";
     apps_title = {};
     apps = {};
     var $_GET = [];
@@ -90,22 +91,6 @@ async function load()
         Button.style.width = "100%";
         document.getElementById("bar_menu_apps").appendChild(Button);
     }
-}
-function first_startup()
-{
-    localStorage.setItem('title', 'webOS v2.0');
-    localStorage.setItem('base_icon', 'O');
-    localStorage.setItem('window_color', 'background-color: rgba(255, 255, 255, 0.548);');
-    localStorage.setItem('taskbar_color', 'rgb(59, 59, 59)');
-    Notification.requestPermission();
-    new WinBox("premier démarrage", {
-        class: ["win"],
-        html:'<p>inititialisé</p>',
-        modal: true,
-        y:'39px',
-        background: localStorage.getItem('window_color'),
-        root: document.body,
-    });
 }
 function open_vm(){
     new WinBox('Virtual Machine', {

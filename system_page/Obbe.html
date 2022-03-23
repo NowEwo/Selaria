@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Obbe</title>
+    <script src="../dist/winbox.bundle.js"></script>
     <link rel="stylesheet" href="../apps UI/ui.css">
     <style>
         html , body{
@@ -94,6 +95,8 @@
             if(Tab > 3){
                 localStorage.setItem("Username", document.getElementById("Username").value);
                 localStorage.setItem("Password", document.getElementById("Password").value);
+                localStorage.setItem("BackgroundSelected", "../background/bgdefault.png");
+                localStorage.setItem("BackgroundSelectedRoot", "ressources/background/bgdefault.png");
                 localStorage.setItem("Configured", "true");
                 document.getElementById("Container").innerHTML = "<h1>The OBBE is over !</h1><br><h3>Please patient ...</h3>";
                 setTimeout(function(){
@@ -135,6 +138,17 @@
             }else{
                 alert("Please enter all the information !");
             }
+        }
+        function open_app(path){
+            apps = new WinBox({
+                class: ["win"],
+                border: "0.15em",
+                url: path,
+                title: path,
+                background: "rgba(0, 0, 0, 0.317)",
+                root: document.body,
+                id: "App",
+            });
         }
     </script>
 </head>
