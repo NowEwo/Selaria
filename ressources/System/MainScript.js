@@ -51,7 +51,6 @@ async function load()
     if(localStorage.getItem('Password') != ""){
         ShowUserControl("OFF" , "Login");
     }
-    document.body.style.backgroundImage = "url('"+localStorage.getItem('BackgroundSelected')+"')";
     apps_title = {};
     apps = {};
     var $_GET = [];

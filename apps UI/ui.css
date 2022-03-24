@@ -78,4 +78,20 @@ input{
     padding: 10px;
     margin: 10px;
 }
+button{
+    background-color: rgba(0, 0, 0, 0.317);
+    border: none;
+    border-radius: 15px;
+    color: white;
+    padding: 10px;
+    margin: 10px;
+}
+button:hover{
+    background-color: rgba(71, 149, 253, 0.317);
+    border: none;
+    border-radius: 15px;
+    color: white;
+    padding: 10px;
+    margin: 10px;
+}
 * {cursor: url(../ressources/cursors/default.png), auto;}

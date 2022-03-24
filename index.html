@@ -9,10 +9,13 @@
     <link rel="stylesheet" href="Icon UI/Icons.css">
     <script src="dist/winbox.bundle.js"></script>
     <title>Selaria</title>
-    <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.1/themes/base/jquery-ui.css">
     <link rel="shortcut icon" href="ressources/logo/logo.ico" type="images/x-icon" />
     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
-    <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
+    <style>
+        body{
+            background-image: url("ressources/background/bgdefault.png");
+        }
+    </style>
 </head>
 <body onload="javascript:load();">
     <div class="bar" id="bar_id">
@@ -91,4 +94,9 @@
     <div id="StartupScreenEffect" style="display: none;cursor: none;">
     </div>
 </body>
+<script>
+    setTimeout(function(){
+        document.body.style.backgroundImage = "url('ressources/background/bgdefault.png')";
+    }, 315);
+</script>
 </html>
