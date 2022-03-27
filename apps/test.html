@@ -16,10 +16,11 @@
             var temp = parts[i].split("=");
             $_GET[decodeURIComponent(temp[0])] = decodeURIComponent(temp[1]);
         }
-        parent.InstallApp("Test", document.location.href);
     </script>
 </head>
 <body>
+    <button onclick="javascript:parent.ShowImmersiveDialog('A simple dialog ...','This is a simple immersive dialog !')" Selaria>Show a immersive dialog !</button>
+    <button onclick="javascript:parent.ShowImmersiveDialog('A simple dialog ...','This is a simple immersive dialog !',false)" Selaria>Show a uncancellable immersive dialog !</button>
 </body>
 <script>
 </script>

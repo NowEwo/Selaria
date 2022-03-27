@@ -249,10 +249,16 @@ function UserControlValidation(){
         eval(CommandToExecuteUserControl);
     }
 }
-function ShowImmersiveDialog(TITLE , TEXT , COMMAND=""){
+function ShowImmersiveDialog(TITLE , TEXT , CANCELABLE=true , COMMAND=""){
     document.getElementById("DialogText").innerHTML=TEXT;
     document.getElementById("DialogTitle").innerHTML=TITLE;
     document.getElementById("ImmersiveDialog").style.display="block";
     CommandToExecuteImmersiveDialog=COMMAND;
+    if(CANCELABLE == true){
+        document.getElementById("DialogCancel").style.display="block";
+    }
+    else{
+        document.getElementById("DialogCancel").style.display="none";
+    }
 }
 var UserControlState = "OFF";

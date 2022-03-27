@@ -369,7 +369,7 @@ input[Selaria] , button[Selaria]{
     bottom: 0;
     left: 0;
     width: 539px;
-    height: 195px;
+    height: fit-content;
     z-index: 9999999999999;
 }
 #Dialog *{
