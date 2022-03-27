@@ -19,15 +19,6 @@
     </body>
     <script>
         function load(){
-            var $_GET = [];
-            var parts = window.location.search.substr(1).split("&");
-            for (var i = 0; i < parts.length; i++){
-                var temp = parts[i].split("=");
-                $_GET[decodeURIComponent(temp[0])] = decodeURIComponent(temp[1]);
-            }
-            if(typeof $_GET["Command"]!=undefined){
-                return eval($_GET["Command"])
-            }
             var type = "Selaria";
             var __EVAL = (s) => eval(`void (__EVAL = ${__EVAL}); ${s}`);
                 jQuery(function($, undefined) {
@@ -61,7 +52,7 @@
                     }
                     }, {
                         greetings: "Selaria Terminal !\nType '_Javascript_' to switch to Javascript mode !",
-                        name: 'SelariaTerminal',
+                        name: 'SelariaTerminalJavascript',
                         prompt: 'Selaria> '
                     });
                 });

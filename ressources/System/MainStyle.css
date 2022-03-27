@@ -297,7 +297,7 @@ input[Selaria] , button[Selaria]{
 #Screensaver{
     background-color: rgba(0, 0, 0, 0.391);
     backdrop-filter: blur(13px);
-    animation: fadeInAnimation 0.5s;
+    animation: fadeInAnimation 0.3s;
     position: absolute;
     z-index: 999999999;
     height: 100%;
@@ -307,6 +307,7 @@ input[Selaria] , button[Selaria]{
 #SmartOpenContainer{
     background-color: rgba(0, 0, 0, 0.539);
     backdrop-filter: blur(13px);
+    animation: fadeInAnimation 0.3s;
     border-radius: 15px;
     position: absolute;
     margin: auto;
@@ -315,7 +316,7 @@ input[Selaria] , button[Selaria]{
     bottom: 0;
     left: 0;
     width: 539px;
-    height: 195px;
+    height: fit-content;
     z-index: 9999999999999;
 }
 #SmartOpenContainer *{
@@ -328,6 +329,7 @@ input[Selaria] , button[Selaria]{
 }
 #AppInstaller{
     background-color: rgba(0, 0, 0, 0.539);
+    animation: fadeInAnimation 0.3s;
     backdrop-filter: blur(13px);
     border-radius: 15px;
     position: absolute;
@@ -337,7 +339,7 @@ input[Selaria] , button[Selaria]{
     bottom: 0;
     left: 0;
     width: 539px;
-    height: 395px;
+    height: fit-content;
     z-index: 9999999999999;
 }
 #AppInstaller *{
@@ -351,7 +353,7 @@ input[Selaria] , button[Selaria]{
 #ImmersiveDialog{
     background-color: rgba(0, 0, 0, 0.391);
     backdrop-filter: blur(13px);
-    animation: fadeInAnimation 0.5s;
+    animation: fadeInAnimation 0.3s;
     position: absolute;
     z-index: 999999999;
     height: 100%;

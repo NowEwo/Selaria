@@ -5,35 +5,37 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="ressources/System/MainScript.js"></script>
-    <link rel="stylesheet" href="ressources/System/MainStyle.css">
     <link rel="stylesheet" href="Icon UI/Icons.css">
     <script src="dist/winbox.bundle.js"></script>
     <title>Selaria</title>
     <link rel="shortcut icon" href="ressources/logo/logo.ico" type="images/x-icon" />
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.13.1/themes/base/jquery-ui.css">
     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
     <style>
         body{
             background-image: url("ressources/background/bgdefault.png");
         }
     </style>
+    <link rel="stylesheet" href="ressources/System/MainStyle.css">
 </head>
 <body onload="javascript:load();">
     <div class="bar" id="bar_id">
-        <button id="bar_base_button_O" class="bar_button" onclick="javascript:open_menu('bar_menu_O');">
+        <button id="bar_base_button_O" class="bar_button" onclick="javascript:open_menu('bar_menu_O');" title="The menu for access the applications !">
             <span class="gg-components"></span>
         </button>
         <button id="bar_base_button_Apps" class="bar_button" onclick="javascript:open_menu('bar_menu_apps');">
             <span class="gg-browser"></span>
         </button>
-        <button id="time_base_button" class="bar_button" style="position: fixed;left: 47.9%;">Unable to find the date !</button>
+        <button id="time_base_button" class="bar_button" style="position: fixed;left: 47.9%;" title="The local date !">Unable to find the date !</button>
         <button id="bar_base_button" class="bar_button" style="float: right;" onclick="javascript:open_menu('barmenu_Power');">
             <span class="gg-log-off"></span>
         </button>
         
-        <button id="bar_base_button" class="bar_button" style="float: right;" onclick="javascript:open_menu('command_line');">
+        <button id="bar_base_button" class="bar_button" style="float: right;" onclick="javascript:open_menu('command_line');" title="Show the command line !">
             <span class="gg-terminal"></span>
         </button>
-        <button id="bar_base_button" class="bar_button" style="float: right;" onclick="javascript:open_menu('notes'); localStorage.setItem('notes' , document.getElementById('notes').value);">
+        <button id="bar_base_button" class="bar_button" style="float: right;" onclick="javascript:open_menu('notes'); localStorage.setItem('notes' , document.getElementById('notes').value);" title="Take notes !">
             <span class="gg-album"></span>
         </button>
     </div>
@@ -59,12 +61,12 @@
         <button class="bar_button menu_button_long" onclick="javascript:document.getElementById('Screensaver').style.display = 'block';">Screensaver</button>
     </div>
     <div class="bar_menu" id="context_menu">
-        <button class="bar_button menu_button_long" onclick="javascript:document.getElementById('SmartOpenContainer').style.display = 'block';">execute</button>
-        <button class="bar_button menu_button_long" onclick="javascript:document.location.href='https://www.bing.com/';">Shutdown</button>
+        <button class="bar_button menu_button_long" onclick="javascript:document.getElementById('SmartOpenContainer').style.display = 'block';document.getElementById('InputOpenApp').focus()">execute</button>
+        <button class="bar_button menu_button_long" onclick="javascript:document.getElementById('Screensaver').style.display = 'block';">Screensaver</button>
         <button class="bar_button menu_button_long" onclick="javascript:open_app('apps/about.html');">About</button>
     </div>
     <div class="bar_menu" id="context_menu_O">
-        <button class="bar_button menu_button_long" onclick="javascript:document.location.href='https://www.bing.com/';">Shutdown</button>
+        <button class="bar_button menu_button_long" onclick="javascript:document.getElementById('Screensaver').style.display = 'block';">Screensaver</button>
     </div>
     <div class="bar_menu" id="context_menu_desktop">
         <button class="bar_button menu_button_long" onclick="javascript:eval(to_execute);">Open</button>
@@ -92,8 +94,8 @@
     <div id="Screensaver" style="display: none;cursor: none;" onclick="javascript:this.style.display='none';ShowUserControl('OFF' , 'Login');">
     </div>
     <div id="SmartOpenContainer" style="display: none;">
-        <h1>Ouvrir l'application .</h1>
-        <input type="text" placeholder="Lien de l'application ." onkeydown="var keyCode = ('which' in event) ? event.which : event.keyCode;if(keyCode == 13){if(this.value != ''){javascript:open_app(this.value);this.value = '';};document.getElementById('SmartOpenContainer').style.display='none'};" Selaria>
+        <h1>Open application .</h1>
+        <input type="text" placeholder="Application link ." onkeydown="var keyCode = ('which' in event) ? event.which : event.keyCode;if(keyCode == 13){if(this.value != ''){javascript:open_app(this.value);this.value = '';};document.getElementById('SmartOpenContainer').style.display='none'};" Selaria id="InputOpenApp">
     </div>
     <div id="AppInstaller" style="display: none;">
         <h1>Installer .</h1>
