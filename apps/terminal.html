@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html onload="javascript:load()">
     <head>
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <script src="https://unpkg.com/jquery.terminal/js/jquery.terminal.min.js"></script>
@@ -18,42 +18,53 @@
     <body>
     </body>
     <script>
-        var type = "Selaria";
-        var __EVAL = (s) => eval(`void (__EVAL = ${__EVAL}); ${s}`);
-            jQuery(function($, undefined) {
-                $('body').terminal(function(command) {
-                if(type == "Javascript"){
-                    if ("_Selaria_" == command){
-                        type = "Selaria";
-                        this.echo("Selaria mode activated !");
-                    }
-                    else if (command !== '') {
-                        try {
-                            var result = __EVAL(command);
-                            if (result !== undefined) {
-                                this.echo(new String(result));
-                            }
-                        } catch(e) {
-                            this.error(new String(e));
+        function load(){
+            var $_GET = [];
+            var parts = window.location.search.substr(1).split("&");
+            for (var i = 0; i < parts.length; i++){
+                var temp = parts[i].split("=");
+                $_GET[decodeURIComponent(temp[0])] = decodeURIComponent(temp[1]);
+            }
+            if(typeof $_GET["Command"]!=undefined){
+                return eval($_GET["Command"])
+            }
+            var type = "Selaria";
+            var __EVAL = (s) => eval(`void (__EVAL = ${__EVAL}); ${s}`);
+                jQuery(function($, undefined) {
+                    $('body').terminal(function(command) {
+                    if(type == "Javascript"){
+                        if ("_Selaria_" == command){
+                            type = "Selaria";
+                            this.echo("Selaria mode activated !");
                         }
-                    } else {
-                       this.echo('');
+                        else if (command !== '') {
+                            try {
+                                var result = __EVAL(command);
+                                if (result !== undefined) {
+                                    this.echo(new String(result));
+                                }
+                            } catch(e) {
+                                this.error(new String(e));
+                            }
+                        } else {
+                           this.echo('');
+                        }
                     }
-                }
-                else{
-                    if(command == "Clear"){
-                        this.clear();
+                    else{
+                        if(command == "Clear"){
+                            this.clear();
+                        }
+                        else if(command == "_Javascript_"){
+                            type = "Javascript";
+                            this.echo("Javascript mode activated !\nType '_Selaria_' to switch to Selaria mode.");
+                        }
                     }
-                    else if(command == "_Javascript_"){
-                        type = "Javascript";
-                        this.echo("Javascript mode activated !\nType '_Selaria_' to switch to Selaria mode.");
-                    }
-                }
-                }, {
-                    greetings: "Selaria Terminal !\nType '_Javascript_' to switch to Javascript mode !",
-                    name: 'SelariaTerminal',
-                    prompt: 'Selaria> '
+                    }, {
+                        greetings: "Selaria Terminal !\nType '_Javascript_' to switch to Javascript mode !",
+                        name: 'SelariaTerminal',
+                        prompt: 'Selaria> '
+                    });
                 });
-            });
+            }
     </script>
 </html>

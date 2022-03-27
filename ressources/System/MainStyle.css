@@ -286,7 +286,7 @@ button[UserControl]:hover{
     padding: 10px;
     margin: 10px;
 }
-input[Selaria]{
+input[Selaria] , button[Selaria]{
     background-color: rgba(0, 0, 0, 0.317);
     border: none;
     border-radius: 15px;
@@ -304,8 +304,52 @@ input[Selaria]{
     width: 100%;
     top: 0;
 }
-#StartupScreenEffect{
-    background-color: rgba(0, 0, 0);
+#SmartOpenContainer{
+    background-color: rgba(0, 0, 0, 0.539);
+    backdrop-filter: blur(13px);
+    border-radius: 15px;
+    position: absolute;
+    margin: auto;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 539px;
+    height: 195px;
+    z-index: 9999999999999;
+}
+#SmartOpenContainer *{
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    color: rgb(255, 255, 255);
+    text-align: center;
+}
+#SmartOpenContainer input[Selaria]{
+    width: 503px;
+}
+#AppInstaller{
+    background-color: rgba(0, 0, 0, 0.539);
+    backdrop-filter: blur(13px);
+    border-radius: 15px;
+    position: absolute;
+    margin: auto;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 539px;
+    height: 395px;
+    z-index: 9999999999999;
+}
+#AppInstaller *{
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    color: rgb(255, 255, 255);
+    text-align: center;
+}
+#AppInstaller input[Selaria] , #AppInstaller button[Selaria]{
+    width: 503px;
+}
+#ImmersiveDialog{
+    background-color: rgba(0, 0, 0, 0.391);
     backdrop-filter: blur(13px);
     animation: fadeInAnimation 0.5s;
     position: absolute;
@@ -314,8 +358,30 @@ input[Selaria]{
     width: 100%;
     top: 0;
 }
-#StartupScreenEffect *{
+#Dialog{
+    background-color: rgba(0, 0, 0, 0.539);
+    backdrop-filter: blur(13px);
+    border-radius: 15px;
+    position: absolute;
+    margin: auto;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 539px;
+    height: 195px;
+    z-index: 9999999999999;
+}
+#Dialog *{
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    color: rgb(255, 255, 255);
     text-align: center;
+}
+#Dialog input[Selaria]{
+    width: 503px;
+}
+#Dialog button[Selaria]:hover{
+    background-color: rgba(71, 149, 253, 0.317);
 }
 @keyframes fadeInAnimation {
     0% {

@@ -44,14 +44,14 @@
     </div>
     <div class="bar_menu" id="bar_menu_O">
         <button class="bar_button menu_button_long" onclick="javascript:open_app('apps/');">applications menu</button>
-        <button class="bar_button menu_button_long" onclick="javascript:open_app('apps/opendialog.html');">execute</button>
+        <button class="bar_button menu_button_long" onclick="javascript:document.getElementById('SmartOpenContainer').style.display = 'block';">execute</button>
         <button class="bar_button menu_button_long" onclick="javascript:open_app('apps/terminal.html');">Terminal</button>
         <button class="bar_button menu_button_long" onclick="javascript:open_app('apps/about.html');">About</button>
         <button class="bar_button menu_button_long" onclick='javascript:open_vm();'>Virtual machine</button>
         <button class="bar_button menu_button_long" onclick="javascript:open_app('https://classic.minecraft.net');">Minecraft</button>
     </div>
     <div class="bar_menu" id="bar_menu_apps">
-        <button class="bar_button menu_button_long" onclick="javascript:apps_installer();">
+        <button class="bar_button menu_button_long" onclick="javascript:document.getElementById('AppInstaller').style.display = 'block';">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12ZM12 4C7.58172 4 4 7.58172 4 12C4 16.4183 7.58172 20 12 20C16.4183 20 20 16.4183 20 12C20 7.58172 16.4183 4 12 4Z" fill="currentColor" /><path fill-rule="evenodd" clip-rule="evenodd" d="M13 7C13 6.44772 12.5523 6 12 6C11.4477 6 11 6.44772 11 7V11H7C6.44772 11 6 11.4477 6 12C6 12.5523 6.44772 13 7 13H11V17C11 17.5523 11.4477 18 12 18C12.5523 18 13 17.5523 13 17V13H17C17.5523 13 18 12.5523 18 12C18 11.4477 17.5523 11 17 11H13V7Z" fill="currentColor"/></svg>
         </button>
     </div>
@@ -59,7 +59,7 @@
         <button class="bar_button menu_button_long" onclick="javascript:document.getElementById('Screensaver').style.display = 'block';">Screensaver</button>
     </div>
     <div class="bar_menu" id="context_menu">
-        <button class="bar_button menu_button_long" onclick="javascript:open_app('apps/opendialog.html');">execute</button>
+        <button class="bar_button menu_button_long" onclick="javascript:document.getElementById('SmartOpenContainer').style.display = 'block';">execute</button>
         <button class="bar_button menu_button_long" onclick="javascript:document.location.href='https://www.bing.com/';">Shutdown</button>
         <button class="bar_button menu_button_long" onclick="javascript:open_app('apps/about.html');">About</button>
     </div>
@@ -91,7 +91,26 @@
     </div>
     <div id="Screensaver" style="display: none;cursor: none;" onclick="javascript:this.style.display='none';ShowUserControl('OFF' , 'Login');">
     </div>
-    <div id="StartupScreenEffect" style="display: none;cursor: none;">
+    <div id="SmartOpenContainer" style="display: none;">
+        <h1>Ouvrir l'application .</h1>
+        <input type="text" placeholder="Lien de l'application ." onkeydown="var keyCode = ('which' in event) ? event.which : event.keyCode;if(keyCode == 13){if(this.value != ''){javascript:open_app(this.value);this.value = '';};document.getElementById('SmartOpenContainer').style.display='none'};" Selaria>
+    </div>
+    <div id="AppInstaller" style="display: none;">
+        <h1>Installer .</h1>
+        <p>Name of the app :</p>
+        <input type="text" name="" id="app_name" placeholder="name of the app" Selaria>
+        <p>URL of the app</p>
+        <input type="text" name="" id="app_url" placeholder="url of the app"  Selaria>
+        <br>
+        <button onclick="javascript:AddTheApp();javascript:document.getElementById('AppInstaller').style.display = 'none';" Selaria>Create the app</button>
+        <br>
+    </div>
+    <div id="ImmersiveDialog" style="display: none;">
+        <div id="Dialog">
+            <h1 id="DialogTitle">Title</h1>
+            <p id="DialogText">Text</p>
+            <button onclick="javascript:document.getElementById('ImmersiveDialog').style.display = 'none';eval(CommandToExecuteImmersiveDialog)" Selaria style="width: 519px;">O.K.</button>
+        </div>
     </div>
 </body>
 <script>

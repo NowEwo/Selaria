@@ -91,6 +91,26 @@ async function load()
         document.getElementById("bar_menu_apps").appendChild(Button);
     }
 }
+function AddTheApp(){
+    LocalAppsList = localStorage.getItem("LocalAppsList");
+    if(LocalAppsList == null){
+        LocalAppsList = {};
+    }else{
+        LocalAppsList = JSON.parse(LocalAppsList);
+    }
+    app_name = document.getElementById('app_name').value;
+    app_url = document.getElementById('app_url').value;
+
+    if(app_name != "" && app_url != ""){
+        LocalAppsList[app_name] = app_url;
+        localStorage.setItem("LocalAppsList", JSON.stringify(LocalAppsList));
+        document.getElementById('app_name').value = "";
+        document.getElementById('app_url').value = "";
+        alert("Application bien ajoutée !");
+    }else{
+        alert("Please enter all the information !");
+    }
+}
 function open_vm(){
     new WinBox('Virtual Machine', {
         class: ["win"],
@@ -153,14 +173,6 @@ document.addEventListener('contextmenu', function (e){
         context_menu.style.visibility = 'visible';
         var window_width = window.innerWidth;
         var window_height = window.innerHeight;
-        var context_menu_width = barmenu_O.offsetWidth;
-        var context_menu_height = barmenu_O.offsetHeight;
-        if(x + context_menu_width > window_width) {
-            context_menu.style.left = (x - context_menu_width) + 'px';
-        }
-        if(y + context_menu_height > window_height) {
-            context_menu.style.top = (y - context_menu_height) + 'px';
-        }
     }
     if(e.target.className == "desktop_button"){
         var context_menu = document.getElementById('context_menu_desktop');
@@ -172,14 +184,6 @@ document.addEventListener('contextmenu', function (e){
         context_menu.style.visibility = 'visible';
         var window_width = window.innerWidth;
         var window_height = window.innerHeight;
-        var context_menu_width = barmenu_O.offsetWidth;
-        var context_menu_height = barmenu_O.offsetHeight;
-        if(x + context_menu_width > window_width) {
-            context_menu.style.left = (x - context_menu_width) + 'px';
-        }
-        if(y + context_menu_height > window_height) {
-            context_menu.style.top = (y - context_menu_height) + 'px';
-        }
     }
     else{
         var context_menu = document.getElementById('context_menu');
@@ -189,14 +193,6 @@ document.addEventListener('contextmenu', function (e){
         context_menu.style.visibility = 'visible';
         var window_width = window.innerWidth;
         var window_height = window.innerHeight;
-        var context_menu_width = barmenu_O.offsetWidth;
-        var context_menu_height = barmenu_O.offsetHeight;
-        if(x + context_menu_width > window_width) {
-            context_menu.style.left = (x - context_menu_width) + 'px';
-        }
-        if(y + context_menu_height > window_height) {
-            context_menu.style.top = (y - context_menu_height) + 'px';
-        }
     } 
 });
 document.addEventListener('click', function (e){
@@ -252,5 +248,11 @@ function UserControlValidation(){
         UserControlState = "VALIDATED";
         eval(CommandToExecuteUserControl);
     }
+}
+function ShowImmersiveDialog(TITLE , TEXT , COMMAND=""){
+    document.getElementById("DialogText").innerHTML=TEXT;
+    document.getElementById("DialogTitle").innerHTML=TITLE;
+    document.getElementById("ImmersiveDialog").style.display="block";
+    CommandToExecuteImmersiveDialog=COMMAND;
 }
 var UserControlState = "OFF";
