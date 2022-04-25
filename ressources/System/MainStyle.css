@@ -385,6 +385,117 @@ input[Selaria] , button[Selaria]{
 #Dialog button[Selaria]:hover{
     background-color: rgba(71, 149, 253, 0.317);
 }
+#bar_menu_O{
+    position: absolute;
+    top: 41px;
+    left: 5px;
+    width: 619px;
+    height: 513px;
+    background-color: rgba(0, 0, 0, 0.549);
+    backdrop-filter: blur(9px);
+    border-radius: 13px;
+    z-index: 99999;
+}
+#bar_menu_O *{
+    color: white;
+}
+#PinnedsApplications{
+    width: 613px;
+    height: 153px;
+    background-color: rgba(0, 0, 0, 0.385);
+    border-radius: 13px;
+    z-index: 99999;
+    margin: 0 auto;
+}
+.PinnedApplication{
+    width: 79px;
+    height: 59px;
+    display: inline-block;
+    text-align: center;
+    position: relative;
+    border-radius: 9px;
+    padding: 17.5px;
+    left: 9px;
+    top: 5px;
+}
+.PinnedApplication:hover{
+    background-color: rgba(0, 0, 0, 0.385);
+}
+#TopBar{
+    width: 613px;
+    height: 39px;
+    background-color: rgba(0, 0, 0, 0);
+    z-index: 99999;
+}
+#TopBar #RightIcons{
+    float: right;
+    position: relative;
+    top: -35px;
+}
+#TopBar #RightIcons svg{
+    padding: 5px;
+    padding-right: 9px;
+    border-radius: 5px;
+}
+#TopBar #RightIcons svg:hover{
+    background-color: rgba(0, 0, 0, 0.385);
+}
+#PinnedsApplicationsText{
+    font-weight: lighter;
+    position: relative;
+    left: 9px;
+    top: 9px;
+}
+#ApplicationsText{
+    font-weight: lighter;
+    position: relative;
+    left: 13px;
+    top: 5px;
+}
+#Username{
+    position: relative;
+    left: 5px;
+}
+.Application{
+    width: 613px;
+    height: 59px;
+    background-color: rgba(0, 0, 0, 0);
+    border-radius: 13px;
+    z-index: 99999;
+    margin: 0 auto;
+}
+.Application:hover{
+    background-color: rgba(0, 0, 0, 0.385);
+}
+.Application svg{
+    position: relative;
+    left: 13px;
+    top: 19px;
+}
+.Application p{
+    position: relative;
+    left: 35px;
+    top: -19px;
+}
+#Applications{
+    border-radius: 13px;
+    height: 309px;
+}
+#ApplicationsContainer{
+    height: calc(241px - 5px);
+    overflow-x: hidden;
+    overflow-y: scroll;
+}
+#ApplicationsContainer::-webkit-scrollbar{
+    width: 5px;
+}
+#ApplicationsContainer::-webkit-scrollbar-thumb{
+    background-color: rgba(0, 0, 0, 0.385);
+    border-radius: 5px;
+}
+#ApplicationsContainer::-webkit-scrollbar-thumb:hover{
+    background-color: rgba(0, 0, 0, 0.549);
+}
 @keyframes fadeInAnimation {
     0% {
         opacity: 0;

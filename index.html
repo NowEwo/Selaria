@@ -44,13 +44,131 @@
         <h3 id="Notification_title">Title</h3>
         <p id="Notification_message">Message</p>
     </div>
-    <div class="bar_menu" id="bar_menu_O">
-        <button class="bar_button menu_button_long" onclick="javascript:open_app('apps/');">applications menu</button>
-        <button class="bar_button menu_button_long" onclick="javascript:document.getElementById('SmartOpenContainer').style.display = 'block';">execute</button>
-        <button class="bar_button menu_button_long" onclick="javascript:open_app('apps/terminal.html');">Terminal</button>
-        <button class="bar_button menu_button_long" onclick="javascript:open_app('apps/about.html');">About</button>
-        <button class="bar_button menu_button_long" onclick='javascript:open_vm();'>Virtual machine</button>
-        <button class="bar_button menu_button_long" onclick="javascript:open_app('https://classic.minecraft.net');">Minecraft</button>
+    <div id="bar_menu_O" style="visibility: hidden;">
+        <div id="TopBar">
+            <p id="Username">Username</p>
+            <div id="RightIcons">
+                <svg width="29" height="25" viewBox="0 0 17 7" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M6.53262 1.05279C6.70202 0.714003 7.04828 0.5 7.42705 0.5H14.0729C14.8163 0.5 15.2998 1.28231 14.9674 1.94721L12.9674 5.94721C12.798 6.286 12.4517 6.5 12.0729 6.5H5.42705C4.68367 6.5 4.20017 5.71769 4.53262 5.05279L6.53262 1.05279Z" stroke="white"/>
+                    <path d="M3.36179 0.276397C3.44649 0.107003 3.61962 0 3.80901 0H4.69099C5.06268 0 5.30443 0.391152 5.13821 0.723603C5.05351 0.892997 4.88038 1 4.69099 1H3.80901C3.43732 1 3.19557 0.608848 3.36179 0.276397Z" fill="white"/>
+                    <path d="M2.36179 2.2764C2.44649 2.107 2.61962 2 2.80901 2H3.69099C4.06268 2 4.30443 2.39115 4.13821 2.7236C4.05351 2.893 3.88038 3 3.69099 3H2.80901C2.43732 3 2.19557 2.60885 2.36179 2.2764Z" fill="white"/>
+                    <path d="M1.36179 4.2764C1.44649 4.107 1.61962 4 1.80901 4H2.69099C3.06268 4 3.30443 4.39115 3.13821 4.7236C3.05351 4.893 2.88038 5 2.69099 5H1.80901C1.43732 5 1.19557 4.60885 1.36179 4.2764Z" fill="white"/>
+                    <path d="M0.361793 6.2764C0.446488 6.107 0.619621 6 0.809009 6H1.69099C2.06268 6 2.30443 6.39115 2.13821 6.7236C2.05351 6.893 1.88038 7 1.69099 7H0.809008C0.437319 7 0.195572 6.60885 0.361793 6.2764Z" fill="white"/>
+                </svg>
+                <svg width="25" height="25" viewBox="0 0 11 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M1.375 0.8375H9.625C9.92709 0.8375 10.1562 1.07556 10.1562 1.35V7.65C10.1562 7.92444 9.92709 8.1625 9.625 8.1625H1.375C1.07291 8.1625 0.84375 7.92444 0.84375 7.65V1.35C0.84375 1.07556 1.07291 0.8375 1.375 0.8375Z" stroke="white"/>
+                    <path d="M3.66667 3.15L4.91366 4.37431C4.98433 4.44373 4.98433 4.55629 4.91366 4.62568L3.66667 5.85" stroke="white" stroke-width="0.5" stroke-linecap="round"/>
+                    <path d="M8.02083 5.85H6.18749C6.06093 5.85 5.95833 5.95074 5.95833 6.075C5.95833 6.19926 6.06093 6.3 6.18749 6.3H8.02083C8.14739 6.3 8.24999 6.19926 8.24999 6.075C8.24999 5.95074 8.14739 5.85 8.02083 5.85Z" fill="white"/>
+                </svg>
+                <svg width="25" height="25" viewBox="0 0 8 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <g clip-path="url(#clip0_5_41)">
+                    <path d="M5.67702 1.82026C5.76806 1.64604 5.98518 1.57675 6.15184 1.68233C6.80198 2.09415 7.32064 2.68539 7.64171 3.38695C8.01238 4.19674 8.0984 5.10661 7.88598 5.97071C7.67355 6.83481 7.17499 7.60309 6.47024 8.15236C5.7655 8.70168 4.89537 9.00016 3.99933 9C3.10329 8.99984 2.23325 8.70104 1.52869 8.15151C0.82412 7.60198 0.325834 6.83354 0.113708 5.96938C-0.0984175 5.10523 -0.0120978 4.19539 0.35883 3.38573C0.680184 2.68428 1.19903 2.09321 1.84928 1.68161C2.01598 1.57609 2.2331 1.64544 2.32408 1.81969C2.41506 1.99394 2.34516 2.20684 2.18056 2.31558C1.67182 2.65165 1.26552 3.12349 1.01059 3.67995C0.706056 4.34468 0.635187 5.09166 0.809341 5.80114C0.983496 6.51065 1.39259 7.1415 1.97104 7.59266C2.54949 8.04383 3.2638 8.28916 3.99945 8.28927C4.7351 8.28942 5.4495 8.04436 6.02811 7.59335C6.60672 7.1424 7.016 6.51166 7.1904 5.80219C7.3648 5.09279 7.29419 4.34578 6.98987 3.68095C6.73515 3.1244 6.32896 2.65243 5.82038 2.31619C5.65579 2.2074 5.58598 1.99447 5.67702 1.82026Z" fill="white"/>
+                    <path d="M4.26667 0.264706C4.26667 0.118513 4.14728 0 4 0C3.85273 0 3.73334 0.118513 3.73334 0.264706V4.5C3.73334 4.64619 3.85273 4.76471 4 4.76471C4.14728 4.76471 4.26667 4.64619 4.26667 4.5V0.264706Z" fill="white"/>
+                    </g>
+                    <defs>
+                    <clipPath id="clip0_5_41">
+                    <rect width="8" height="9" fill="white"/>
+                    </clipPath>
+                    </defs>
+                </svg>
+            </div>
+        </div>
+        <div id="PinnedsApplications">
+            <p id="PinnedsApplicationsText">Pinneds applications :</p>
+            <div class="PinnedApplication" onclick="open_app('apps/test.html')">
+                <svg width="15" height="15" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="1.5" y="1.5" width="11" height="11" rx="1.5" stroke="white" stroke-width="3"/>
+                </svg>
+                <p>Test</p>
+            </div>
+            <div class="PinnedApplication" onclick="open_app('apps/about.html')">
+                <svg width="15" height="15" viewBox="0 0 7 7" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="0.25" y="0.25" width="6.5" height="6.5" rx="3.25" stroke="white" stroke-width="0.5"/>
+                    <rect x="3.25" y="2.5" width="0.5" height="3" rx="0.25" fill="white"/>
+                    <rect x="3.25" y="1.5" width="0.5" height="0.5" rx="0.25" fill="white"/>
+                </svg>
+                <p>About</p>
+            </div>
+            <div class="PinnedApplication" onclick="open_app('apps/terminal.html')">
+                <svg width="15" height="15" viewBox="0 0 24 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="0.75" y="0.75" width="22.5" height="18.5" rx="2.25" stroke="white" stroke-width="1.5"/>
+                    <path d="M8 7L10.7207 9.72069C10.8749 9.87495 10.8749 10.1251 10.7207 10.2793L8 13" stroke="white" stroke-linecap="round"/>
+                    <rect x="13" y="13" width="5" height="1" rx="0.5" fill="white"/>
+                </svg>
+                <p>Terminal</p>
+            </div>
+            <div class="PinnedApplication" onclick="open_app('.')">
+                <svg width="15" height="15" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="0.5" y="0.5" width="12" height="12" rx="0.5" stroke="white"/>
+                    <rect x="3.25" y="3.25" width="6.5" height="6.5" rx="0.75" stroke="white" stroke-width="0.5"/>
+                    <path d="M4 5L5 9L6 5" stroke="white" stroke-width="0.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M7 9V5.02118C7 5.0159 7.00711 5.01423 7.00947 5.01894L7.99553 6.99106C7.99737 6.99474 8.00263 6.99474 8.00447 6.99106L8.99053 5.01894C8.99289 5.01423 9 5.0159 9 5.02118V9" stroke="white" stroke-width="0.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M3 4C3 3.44772 3.44772 3 4 3H9C9.55228 3 10 3.44772 10 4V4.5H3V4Z" fill="white"/>
+                </svg>
+                <p>VM</p>
+            </div>
+            <div class="PinnedApplication" onclick="open_app('https://classic.minecraft.net/')">
+                <svg width="15" height="15" viewBox="0 0 13 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M1 11.191V4.30902L6 6.80902V13.691L1 11.191Z" stroke="white"/>
+                    <path d="M12 11.191V4.30902L7 6.80902V13.691L12 11.191Z" stroke="white"/>
+                    <path d="M6.5 1.05902L11.382 3.5L6.5 5.94098L1.61803 3.5L6.5 1.05902Z" stroke="white"/>
+                </svg>
+                <p>Minecraft</p>
+            </div>
+        </div>
+        <div id="Applications">
+            <p id="ApplicationsText">Applications :</p>
+            <div id="ApplicationsContainer">
+                <div class="Application" onclick="open_app('apps/test.html')">
+                    <svg width="15" height="15" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect x="1.5" y="1.5" width="11" height="11" rx="1.5" stroke="white" stroke-width="3"/>
+                    </svg>
+                    <p>Test</p>
+                </div>
+                <div class="Application" onclick="open_app('apps/about.html')">
+                    <svg width="15" height="15" viewBox="0 0 7 7" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect x="0.25" y="0.25" width="6.5" height="6.5" rx="3.25" stroke="white" stroke-width="0.5"/>
+                        <rect x="3.25" y="2.5" width="0.5" height="3" rx="0.25" fill="white"/>
+                        <rect x="3.25" y="1.5" width="0.5" height="0.5" rx="0.25" fill="white"/>
+                    </svg>
+                    <p>About</p>
+                </div>
+                <div class="Application" onclick="open_app('apps/terminal.html')">
+                    <svg width="15" height="15" viewBox="0 0 24 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect x="0.75" y="0.75" width="22.5" height="18.5" rx="2.25" stroke="white" stroke-width="1.5"/>
+                        <path d="M8 7L10.7207 9.72069C10.8749 9.87495 10.8749 10.1251 10.7207 10.2793L8 13" stroke="white" stroke-linecap="round"/>
+                        <rect x="13" y="13" width="5" height="1" rx="0.5" fill="white"/>
+                    </svg>
+                    <p>Terminal</p>
+                </div>
+                <div class="Application" onclick="open_app('.')">
+                    <svg width="15" height="15" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect x="0.5" y="0.5" width="12" height="12" rx="0.5" stroke="white"/>
+                        <rect x="3.25" y="3.25" width="6.5" height="6.5" rx="0.75" stroke="white" stroke-width="0.5"/>
+                        <path d="M4 5L5 9L6 5" stroke="white" stroke-width="0.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M7 9V5.02118C7 5.0159 7.00711 5.01423 7.00947 5.01894L7.99553 6.99106C7.99737 6.99474 8.00263 6.99474 8.00447 6.99106L8.99053 5.01894C8.99289 5.01423 9 5.0159 9 5.02118V9" stroke="white" stroke-width="0.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M3 4C3 3.44772 3.44772 3 4 3H9C9.55228 3 10 3.44772 10 4V4.5H3V4Z" fill="white"/>
+                    </svg>
+                    <p>VM</p>
+                </div>
+                <div class="Application" onclick="open_app('https://classic.minecraft.net/')">
+                    <svg width="15" height="15" viewBox="0 0 13 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M1 11.191V4.30902L6 6.80902V13.691L1 11.191Z" stroke="white"/>
+                        <path d="M12 11.191V4.30902L7 6.80902V13.691L12 11.191Z" stroke="white"/>
+                        <path d="M6.5 1.05902L11.382 3.5L6.5 5.94098L1.61803 3.5L6.5 1.05902Z" stroke="white"/>
+                    </svg>
+                    <p>Minecraft</p>
+                </div>
+                <div class="Application" onclick="open_app('apps/')">
+                    <svg width="13" height="13" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect width="13" height="3" rx="1.5" fill="white"/>
+                        <rect y="5" width="13" height="3" rx="1.5" fill="white"/>
+                        <rect y="10" width="13" height="3" rx="1.5" fill="white"/>
+                    </svg>
+                    <p>All Applications</p>
+                </div>
+            </div>
+        </div>
     </div>
     <div class="bar_menu" id="bar_menu_apps">
         <button class="bar_button menu_button_long" onclick="javascript:document.getElementById('AppInstaller').style.display = 'block';">
@@ -120,5 +238,6 @@
     setTimeout(function(){
         document.body.style.backgroundImage = "url('ressources/background/bgdefault.png')";
     }, 315);
+    document.getElementById("Username").innerHTML = localStorage.getItem("Username");
 </script>
 </html>
