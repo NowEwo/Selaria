@@ -24,7 +24,7 @@ function open_app(path){
     apps[App_uuid] = new WinBox({
         class: ["win"],
         border: "0.15em",
-        url: path+"?app_id="+App_uuid,
+        url: path+"?AppId="+App_uuid,
         title: path,
         background: localStorage.getItem('window_color'),
         x: "center",
@@ -34,12 +34,12 @@ function open_app(path){
         Uuid: App_uuid,
         id: "App_"+App_uuid,
     });
-}
-function AppToBackground(Uuid){
-    apps[Uuid].hide();
-}
-function AppDisableBackground(Uuid){
-    apps[Uuid].show();
+    if(document.getElementById("bar_menu_apps").style.visibility == "visible"){
+        open_menu("bar_menu_apps");
+    }
+    if(document.getElementById("bar_menu_O").style.visibility == "visible"){
+        open_menu("bar_menu_O");
+    }
 }
 async function load()
 {
@@ -110,18 +110,6 @@ function AddTheApp(){
     }else{
         alert("Please enter all the information !");
     }
-}
-function open_vm(){
-    new WinBox('Virtual Machine', {
-        class: ["win"],
-        border: "0.15em",
-        url:'index.html',
-        background: localStorage.getItem('window_color'),
-        x: "center",
-        y: "center",
-        top: "35px",
-        root: document.body
-    });
 }
 function apps_installer(){
     new WinBox('Apps Installer', {
@@ -261,4 +249,8 @@ function ShowImmersiveDialog(TITLE , TEXT , CANCELABLE=true , COMMAND=""){
         document.getElementById("DialogCancel").style.display="none";
     }
 }
+function TerminalModeO(){
+    ShowImmersiveDialog("Terminal mode !" , "Click Continue to go on terminal mode ." , CANCELABLE=true , COMMAND="document.location.href='apps/terminal.html'");
+}
+var Background = localStorage.getItem("Background");
 var UserControlState = "OFF";
