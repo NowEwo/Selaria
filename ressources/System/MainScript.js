@@ -252,5 +252,31 @@ function ShowImmersiveDialog(TITLE , TEXT , CANCELABLE=true , COMMAND=""){
 function TerminalModeO(){
     ShowImmersiveDialog("Terminal mode !" , "Click Continue to go on terminal mode ." , CANCELABLE=true , COMMAND="document.location.href='apps/terminal.html'");
 }
+function Command(Text){
+    let url = "http://localhost:9000/";
+    let headers = {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+    };
+    
+    async function SendCommand(Text){
+        var TextFormatted = {
+            "Action": "ExecuteCommand",
+            "Command": Text
+        }
+        await fetch(
+            url,
+            {
+                method: "POST",
+                headers: headers,
+                body: JSON.stringify(TextFormatted)
+            },
+        ).then(async rawResponse =>{
+            var content = await rawResponse.json()
+            console.log(content);
+        });
+    }
+    SendCommand(Text);
+}
 var Background = localStorage.getItem("Background");
 var UserControlState = "OFF";
