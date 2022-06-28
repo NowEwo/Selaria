@@ -79,37 +79,6 @@ async function load()
              document.location.href="index mobile.html";
          }
     }
-    AppsList = JSON.parse(localStorage.getItem("LocalAppsList"));
-    for(Apps in AppsList){
-        Button = document.createElement("button");
-        Button.className = "bar_button";
-        Button.innerHTML = JSON.stringify(Apps).replace('"','').replace('"','');
-        Button.onclick = function(){
-            open_app(JSON.stringify(AppsList[Apps]).replace('"','').replace('"',''));
-        }
-        Button.style.width = "100%";
-        document.getElementById("bar_menu_apps").appendChild(Button);
-    }
-}
-function AddTheApp(){
-    LocalAppsList = localStorage.getItem("LocalAppsList");
-    if(LocalAppsList == null){
-        LocalAppsList = {};
-    }else{
-        LocalAppsList = JSON.parse(LocalAppsList);
-    }
-    app_name = document.getElementById('app_name').value;
-    app_url = document.getElementById('app_url').value;
-
-    if(app_name != "" && app_url != ""){
-        LocalAppsList[app_name] = app_url;
-        localStorage.setItem("LocalAppsList", JSON.stringify(LocalAppsList));
-        document.getElementById('app_name').value = "";
-        document.getElementById('app_url').value = "";
-        alert("Application bien ajoutée !");
-    }else{
-        alert("Please enter all the information !");
-    }
 }
 function apps_installer(){
     new WinBox('Apps Installer', {
@@ -251,32 +220,6 @@ function ShowImmersiveDialog(TITLE , TEXT , CANCELABLE=true , COMMAND=""){
 }
 function TerminalModeO(){
     ShowImmersiveDialog("Terminal mode !" , "Click Continue to go on terminal mode ." , CANCELABLE=true , COMMAND="document.location.href='apps/terminal.html'");
-}
-function Command(Text){
-    let url = "http://localhost:9000/";
-    let headers = {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json'
-    };
-    
-    async function SendCommand(Text){
-        var TextFormatted = {
-            "Action": "ExecuteCommand",
-            "Command": Text
-        }
-        await fetch(
-            url,
-            {
-                method: "POST",
-                headers: headers,
-                body: JSON.stringify(TextFormatted)
-            },
-        ).then(async rawResponse =>{
-            var content = await rawResponse.json()
-            console.log(content);
-        });
-    }
-    SendCommand(Text);
 }
 var Background = localStorage.getItem("Background");
 var UserControlState = "OFF";

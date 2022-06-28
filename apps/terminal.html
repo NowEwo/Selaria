@@ -13,49 +13,45 @@
             color: var(--color,#aaa);
             text-shadow: 0 0 calc(var(--glow)*5px) var(--color,#ccc);
         }
+        body {
+            color: #aaa;
+            background: #000;
+            size: 1.4;
+            animation: terminal-blink;
+        }
     </style>
     </head>
     <body>
     </body>
     <script>
-        function load(){
-            var type = "Selaria";
-            var __EVAL = (s) => eval(`void (__EVAL = ${__EVAL}); ${s}`);
-                jQuery(function($, undefined) {
-                    $('body').terminal(function(command) {
-                    if(type == "Javascript"){
-                        if ("_Selaria_" == command){
-                            type = "Selaria";
-                            this.echo("Selaria mode activated !");
-                        }
-                        else if (command !== '') {
-                            try {
-                                var result = __EVAL(command);
-                                if (result !== undefined) {
-                                    this.echo(new String(result));
-                                }
-                            } catch(e) {
-                                this.error(new String(e));
-                            }
-                        } else {
-                           this.echo('');
-                        }
-                    }
-                    else{
-                        if(command == "Clear"){
-                            this.clear();
-                        }
-                        else if(command == "_Javascript_"){
-                            type = "Javascript";
-                            this.echo("Javascript mode activated !\nType '_Selaria_' to switch to Selaria mode.");
-                        }
-                    }
-                    }, {
-                        greetings: "Selaria Terminal !\nType '_Javascript_' to switch to Javascript mode !",
-                        name: 'SelariaTerminalJavascript',
-                        prompt: 'Selaria> '
-                    });
-                });
+        var path = '/';
+        var term = $('body').terminal({
+            set(new_path) {
+                path = new_path;
+                Promise.resolve().then(() => console.log($('.terminal-output').html().replace(/<[^>]+>/g, '')));
             }
+        }, {
+            greetings: false,
+            prompt() {
+                return `┌──(${color('red', 'ROOT@Selaria')})-[${color('blue', path)}]
+        └─\$ `;
+            }
+        });
+        function color(name, string) {
+            var colors = {
+                blue:   '#55f',
+                green:  '#4d4',
+                grey:   '#999',
+                red:    '#A00',
+                yellow: '#FF5',
+                violet: '#a320ce',
+                white:  '#fff'
+            }
+            if (colors[name]) {
+                return '[[;' + colors[name] + ';]' + string + ']';
+            } else {
+                return string;
+            }
+        }
     </script>
 </html>

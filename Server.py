@@ -1,12 +1,16 @@
 from http.server import BaseHTTPRequestHandler, HTTPServer
 import subprocess
+import os
+try:
+    import pynput
+except:
+    os.system("pip3 install pynput")
 import json
 import sys
-import os
 
 # subprocess.run("python Launcher.py", capture_output=True)
 
-hostName = "127.0.0.1"
+hostName = "localhost"
 serverPort = 9000
 
 class MyServer(BaseHTTPRequestHandler):
@@ -30,6 +34,26 @@ class MyServer(BaseHTTPRequestHandler):
                 self.wfile.write(bytes(f.read(), "utf-8"))
         elif(body["Action"] == "ExecuteCommand"):
             self.wfile.write(bytes(subprocess.run(body["Command"], capture_output=True).stdout, "utf-8"))
+        elif(body["Action"] == "DeleteFile"):
+            os.remove(body["FileName"])
+        elif(body["Action"] == "CreateFile"):
+            with open(body["FileName"], body["Type"]) as f:
+                f.write("")
+        elif(body["Action"] == "CreateFolder"):
+            os.mkdir(body["FolderName"])
+        elif(body["Action"] == "DeleteFolder"):
+            os.rmdir(body["FolderName"])
+        elif(body["Action"] == "KeyboardInput"):
+            pynput.keyboard.Controller().type(body["Text"])
+        elif(body["Action"] == "MouseInput"):
+            PreviousPosition = pynput.mouse.Controller().position
+            pynput.mouse.Controller().position = body["Position"]
+            pynput.mouse.Controller().click("left")
+            pynput.mouse.Controller().position = PreviousPosition
+        elif(body["Action"] == "MouseMove"):
+            pynput.mouse.Controller().position = body["Position"]
+        elif(body["Action"] == "MouseScroll"):
+            pynput.mouse.Controller().scroll(body["Scroll"])
 
 if __name__ == "__main__":        
     webServer = HTTPServer((hostName, serverPort), MyServer)

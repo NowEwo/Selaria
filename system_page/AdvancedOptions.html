@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Obbe</title>
+        <script src="../ressources/FileSystem/dist/idbfs.js"></script>
+        <script src="../dist/winbox.bundle.js"></script>
+        <link rel="stylesheet" href="../apps UI/ui.css">
+        <style>
+            html , body{
+                background-image: url("../ressources/background/bgdefault.png");
+                background-repeat: no-repeat;
+                background-size: cover;
+                background-position: center;
+                background-attachment: fixed;
+            }
+            #Container{
+                backdrop-filter: blur(9px);
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                border-radius: 15px;
+                position: absolute;
+                text-align: center;
+                left: 50%;
+                top: 50%;
+                transform: translate(-50%, -50%);
+                padding: 13px;
+                width: 59%;
+                background-color: rgba(0, 0, 0, 0.317);
+                animation: fadeInAnimation 0.5s;
+                overflow: hidden;
+            }
+            button{
+                background-color: rgba(0, 0, 0, 0.317);
+                border: none;
+                border-radius: 15px;
+                color: white;
+                padding: 10px;
+                margin: 10px;
+            }
+            button:hover{
+                background-color: rgba(71, 149, 253, 0.317);
+                border: none;
+                border-radius: 15px;
+                color: white;
+                padding: 10px;
+                margin: 10px;
+            }
+            input{
+                background-color: rgba(0, 0, 0, 0.317);
+                border: none;
+                border-radius: 15px;
+                color: white;
+                padding: 10px;
+                margin: 10px;
+            }
+            button[Blue]{
+                background-color: rgb(59, 95, 255);
+                border: none;
+                border-radius: 15px;
+                color: white;
+                padding: 10px;
+                margin: 10px;
+            }
+            button[Blue]:hover{
+                background-color: rgb(71, 151, 253);
+                border: none;
+                border-radius: 15px;
+                color: white;
+                padding: 10px;
+                margin: 10px;
+            }
+            *:focus-visible{
+                outline: none;
+            }
+            @keyframes fadeInAnimation {
+                0% {
+                    opacity: 0;
+                }
+                100% {
+                    opacity: 1;
+                }
+            }
+        </style>
+        <script>
+            function open_app(path){
+                ApplicationHost = new WinBox({
+                    class: ["win"],
+                    border: "0.15em",
+                    url: path,
+                    title: path,
+                    background: localStorage.getItem('window_color'),
+                    x: "center",
+                    y: "center",
+                    top: "35px",
+                    root: document.body,
+                    id: "App",
+                });
+            }
+        </script>
+    </head>
+    <body>
+        <div id="Container">
+            <h1>Advanced options !</h1>
+            <h3>Don't touch these settings if you don't know what you're doing !</h3>
+            <button Blue onclick="javascript:document.location.href = 'important_error.html?error=localStorageCorrupted'">Reset to factory settings !</button>
+            <button Blue onclick="javascript:open_app('../apps/terminal.html')">Open terminal !</button>
+        </div>
+    </body>
+</html>

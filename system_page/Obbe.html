@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Obbe</title>
+    <script src="../ressources/FileSystem/dist/idbfs.js"></script>
     <script src="../dist/winbox.bundle.js"></script>
     <link rel="stylesheet" href="../apps UI/ui.css">
     <style>
@@ -96,6 +97,7 @@
                 localStorage.setItem("Username", document.getElementById("Username").value);
                 localStorage.setItem("Password", document.getElementById("Password").value);
                 localStorage.setItem("Configured", "true");
+                var CreateFS = new IDBFS.FileSystem("MainFS");
                 document.getElementById("Container").innerHTML = "<h1>The OBBE is over !</h1><br><h3>Please patient ...</h3>";
                 setTimeout(function(){
                     document.location.href = "../index.html?Command=notification('Welcome to your computer , ' + localStorage.getItem('Username') + ' !', 'Thanks to use Selaria !', '')";
@@ -156,6 +158,7 @@
             <h1>Is time to configure your computer !</h1>
             <h3>Configure your computer is very important to have a good experience with this Operating System !</h3>
             <button Blue onclick="javascript:NextTab();">Got it !</button>
+            <button onclick="javascript:document.location.href = 'AdvancedOptions.html';">Advanced options !</button>
         </div>
         <div id="Tab2" style="display: none;" class="Tab">
             <h1>Login informations !</h1>
@@ -180,5 +183,6 @@
             <button onclick="javascript:PreviousTab();">Back !</button>
             <button Blue onclick="javascript:NextTab();">Next !</button>
         </div>
+    </div>
 </body>
 </html>

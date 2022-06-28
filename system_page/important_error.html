@@ -45,8 +45,9 @@
             window.location.href = "../index.html";
         }
         if($_GET["error"] == "localStorageCorrupted"){
-            document.body.innerHTML = "<h1>Repair</h1><p>Selaria has detected that your localStorage is corrupted . We need to delete all the LocalStorage . This does not have any damage to your host computer . <strong>If it's the first time you launch this Operating System , is normal</strong> .</p>";
+            document.body.innerHTML = "<h1>Repair</h1><p>Selaria has detected that your localStorage is corrupted . We need to delete all the LocalStorage and IndexedDataBase . This does not have any damage to your host computer . <strong>If it's the first time you launch this Operating System , is normal</strong> .</p>";
             setTimeout(function(){
+                IDBObjectStore.clear();
                 localStorage.clear();
                 window.location.href = "../index.html";
                 localStorage.setItem("localStorageVerification", "Normal");
