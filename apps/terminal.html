@@ -15,43 +15,51 @@
         }
         body {
             color: #aaa;
-            background: #000;
-            size: 1.4;
-            animation: terminal-blink;
+            background: rgba(0, 0, 0, 0);
         }
     </style>
     </head>
     <body>
     </body>
     <script>
-        var path = '/';
-        var term = $('body').terminal({
-            set(new_path) {
-                path = new_path;
-                Promise.resolve().then(() => console.log($('.terminal-output').html().replace(/<[^>]+>/g, '')));
-            }
-        }, {
-            greetings: false,
-            prompt() {
-                return `┌──(${color('red', 'ROOT@Selaria')})-[${color('blue', path)}]
-        └─\$ `;
-            }
-        });
-        function color(name, string) {
-            var colors = {
-                blue:   '#55f',
-                green:  '#4d4',
-                grey:   '#999',
-                red:    '#A00',
-                yellow: '#FF5',
-                violet: '#a320ce',
-                white:  '#fff'
-            }
-            if (colors[name]) {
-                return '[[;' + colors[name] + ';]' + string + ']';
-            } else {
-                return string;
+        console.log(`
+██ ██ █╬ ███ ███ █ ███ ╬╬ ███ ██ ███ █╬█ █ █╬╬█ ███ █╬   By Yannou !
+█▄ █▄ █╬ █▄█ █▄╬ █ █▄█ ╬╬ ╬█╬ █▄ █▄╬ █V█ █ ██▄█ █▄█ █╬   For Selaria "OS" !
+▄█ █▄ ██ █╬█ █╬█ █ █╬█ ╬╬ ╬█╬ █▄ █╬█ █╬█ █ █╬██ █╬█ ██   Https://www.GitHub.Com/Yannou000/Selaria !
+        `)
+        Commands = {
+            "Clear": {
+                "Terminal": "this.clear()",
+                "Console": "console.clear()"
+            },
+            "S": "this.echo('S !')",
+            "Help": "for(Item in Commands){this.echo(Item);}",
+            "WhatDo": "this.echo(JSON.stringify(Commands[command.split(' ')[1]]));",
+            "Reload": {
+                "System": "parent.document.location.href = '../index.html';",
+                "Terminal": "document.location.href = 'terminal.html';"
             }
         }
+        var __EVAL = (s) => eval(`void (__EVAL = ${__EVAL}); ${s}`);
+        jQuery(function($, undefined) {
+            $('body').terminal(function(command) {
+                if(command !== ""){
+                    if(typeof Commands[command.split(" ")[0]] == "string"){
+                        eval(Commands[command.split(" ")[0]])
+                    }else{
+                        eval(Commands[command.split(" ")[0]][command.split(" ")[1]]);
+                    }
+                }
+            }, {
+                greetings: `
+██ ██ █╬ ███ ███ █ ███ ╬╬ ███ ██ ███ █╬█ █ █╬╬█ ███ █╬   By Yannou !
+█▄ █▄ █╬ █▄█ █▄╬ █ █▄█ ╬╬ ╬█╬ █▄ █▄╬ █V█ █ ██▄█ █▄█ █╬   For Selaria "OS" !
+▄█ █▄ ██ █╬█ █╬█ █ █╬█ ╬╬ ╬█╬ █▄ █╬█ █╬█ █ █╬██ █╬█ ██   Https://www.GitHub.Com/Yannou000/Selaria !
+                `,
+                name: 'SelariaTerminal',
+                height: 200,
+                prompt: 'Selaria -> '
+            });
+        });
     </script>
 </html>

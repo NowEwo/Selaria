@@ -24,7 +24,7 @@ function open_app(path){
     apps[App_uuid] = new WinBox({
         class: ["win"],
         border: "0.15em",
-        url: path+"?AppId="+App_uuid,
+        url: path+"?ID="+App_uuid,
         title: path,
         background: localStorage.getItem('window_color'),
         x: "center",
@@ -78,7 +78,7 @@ async function load()
          else{
              document.location.href="index mobile.html";
          }
-    }
+    };
 }
 function apps_installer(){
     new WinBox('Apps Installer', {
@@ -220,6 +220,6 @@ function ShowImmersiveDialog(TITLE , TEXT , CANCELABLE=true , COMMAND=""){
 }
 function TerminalModeO(){
     ShowImmersiveDialog("Terminal mode !" , "Click Continue to go on terminal mode ." , CANCELABLE=true , COMMAND="document.location.href='apps/terminal.html'");
-}
+};
 var Background = localStorage.getItem("Background");
 var UserControlState = "OFF";
