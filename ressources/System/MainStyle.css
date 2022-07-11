@@ -1,5 +1,5 @@
 .bar{
-    background-color: rgba(0, 0, 0, 0.548);
+    background-color: rgba(0, 0, 0, 0.19);
     width: 100%;
 }
 html, body{
@@ -23,7 +23,7 @@ html, body{
 .bar_button:hover{
     text-decoration: none;
     color: rgb(255, 255, 255);
-    background-color: rgba(148, 148, 148, 0.301);
+    background-color: rgba(148, 148, 148, 0.19);
     height: 35px;
     border: none;
 }
@@ -37,7 +37,7 @@ body{
 }
 .bar_menu{
     width: 100px;
-    background-color: rgba(0, 0, 0, 0.548);
+    background-color: rgba(0, 0, 0, 0.19);
     backdrop-filter: blur(13px);
     border-radius: 5px;
     visibility: hidden;
@@ -49,7 +49,7 @@ body{
     width: 105px;
     height: 105px;
     border-radius: 3px;
-    background-color: rgba(0, 0, 0, 0.548);
+    background-color: rgba(0, 0, 0, 0.19);
     border: none;
     text-decoration: none;
     color: rgba(255, 255, 255, 0.493);
@@ -61,7 +61,7 @@ body{
     width: 105px;
     height: 105px;
     border-radius: 3px;
-    background-color: rgba(0, 0, 0, 0.548);
+    background-color: rgba(0, 0, 0, 0.19);
     border: 5px solid rgba(0, 0, 0, 0.19);
     text-decoration: none;
     color: rgba(255, 255, 255, 0.493);
@@ -70,7 +70,7 @@ body{
 }
 .bar_menu_right{
     width: 100px;
-    background-color: rgba(0, 0, 0, 0.548);
+    background-color: rgba(0, 0, 0, 0.19);
     backdrop-filter: blur(13px);
     border-radius: 5px;
     visibility: hidden;
@@ -81,7 +81,7 @@ body{
 .bar_menu_all{
     width: 100px;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.548);
+    background-color: rgba(0, 0, 0, 0.19);
     border-radius: 5px;
     visibility: hidden;
     position: fixed;
@@ -89,7 +89,7 @@ body{
     right: 0;
 }
 .winbox{
-    background-color: rgba(0, 0, 0, 0.548);
+    background-color: rgba(0, 0, 0, 0.19);
     backdrop-filter: blur(13px);
     border-radius: 9px;
     box-shadow: none;
@@ -103,11 +103,11 @@ body{
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 #context_menu{
-    box-shadow: -1px 2px 5px 1px rgba(0, 0, 0, 0.548);
+    box-shadow: -1px 2px 5px 1px rgba(0, 0, 0, 0.19);
     border-radius: 5px;
 }
 #context_menu_O{
-    box-shadow: -1px 2px 5px 1px rgba(0, 0, 0, 0.548);
+    box-shadow: -1px 2px 5px 1px rgba(0, 0, 0, 0.19);
     border-radius: 5px;
 }
 .wb-body{
@@ -152,7 +152,7 @@ h1, h2, h3, h4, h5, h6, p, a{
 }
 #notes{
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    background-color: rgba(0, 0, 0, 0.548);
+    background-color: rgba(0, 0, 0, 0.19);
     animation: fadeInAnimation 0.5s;
     backdrop-filter: blur(13px);
     border-radius: 9px;
@@ -190,7 +190,7 @@ h1, h2, h3, h4, h5, h6, p, a{
 .desktop_button:hover{
     text-decoration: none;
     color: rgb(255, 255, 255);
-    background-color: rgba(148, 148, 148, 0.301);
+    background-color: rgba(148, 148, 148, 0.19);
     text-align: center;
     border: none;
     height: 95px;
@@ -201,7 +201,7 @@ h1, h2, h3, h4, h5, h6, p, a{
     transform: translateX(-50%);
 }
 #command_line{
-    background-color: rgba(0, 0, 0, 0.548);
+    background-color: rgba(0, 0, 0, 0.19);
     backdrop-filter: blur(13px);
     visibility: hidden;
     position: absolute;
@@ -216,7 +216,7 @@ h1, h2, h3, h4, h5, h6, p, a{
     top: 41px;
 }
 #Notification{
-    background-color: rgba(0, 0, 0, 0.548);
+    background-color: rgba(0, 0, 0, 0.19);
     backdrop-filter: blur(13px);
     top: calc(35px + 5px);
     border-radius: 13px;
@@ -234,7 +234,7 @@ h1, h2, h3, h4, h5, h6, p, a{
     display: table-row;
 }
 #UserControl{
-    background-color: rgba(0, 0, 0, 0.391);
+    background-color: rgba(0, 0, 0, 0.25);
     backdrop-filter: blur(13px);
     animation: fadeInAnimation 0.5s;
     position: absolute;
@@ -244,7 +244,7 @@ h1, h2, h3, h4, h5, h6, p, a{
     top: 0;
 }
 #UserControlContainer{
-    background-color: rgba(0, 0, 0, 0.539);
+    background-color: rgba(0, 0, 0, 0.25);
     border-radius: 15px;
     position: absolute;
     margin: auto;
@@ -295,9 +295,9 @@ input[Selaria] , button[Selaria]{
     margin: 9px;
 }
 #Screensaver{
-    background-color: rgba(0, 0, 0, 0.391);
+    background-color: rgba(0, 0, 0, 0.25);
     backdrop-filter: blur(13px);
-    animation: fadeInAnimation 0.3s;
+    animation: ScreensaverAnimationFull 3s infinite;
     position: absolute;
     z-index: 999999999;
     height: 100%;
@@ -305,7 +305,7 @@ input[Selaria] , button[Selaria]{
     top: 0;
 }
 #SmartOpenContainer{
-    background-color: rgba(0, 0, 0, 0.539);
+    background-color: rgba(0, 0, 0, 0.25);
     backdrop-filter: blur(13px);
     animation: fadeInAnimation 0.3s;
     border-radius: 15px;
@@ -328,7 +328,7 @@ input[Selaria] , button[Selaria]{
     width: 503px;
 }
 #AppInstaller{
-    background-color: rgba(0, 0, 0, 0.539);
+    background-color: rgba(0, 0, 0, 0.25);
     animation: fadeInAnimation 0.3s;
     backdrop-filter: blur(13px);
     border-radius: 15px;
@@ -351,7 +351,7 @@ input[Selaria] , button[Selaria]{
     width: 503px;
 }
 #ImmersiveDialog{
-    background-color: rgba(0, 0, 0, 0.391);
+    background-color: rgba(0, 0, 0, 0.25);
     backdrop-filter: blur(13px);
     animation: fadeInAnimation 0.3s;
     position: absolute;
@@ -361,7 +361,7 @@ input[Selaria] , button[Selaria]{
     top: 0;
 }
 #Dialog{
-    background-color: rgba(0, 0, 0, 0.539);
+    background-color: rgba(0, 0, 0, 0.25);
     backdrop-filter: blur(13px);
     border-radius: 15px;
     position: absolute;
@@ -391,7 +391,7 @@ input[Selaria] , button[Selaria]{
     left: 5px;
     width: 619px;
     height: 513px;
-    background-color: rgba(0, 0, 0, 0.549);
+    background-color: rgba(0, 0, 0, 0.19);
     backdrop-filter: blur(9px);
     border-radius: 13px;
     z-index: 99999;
@@ -402,7 +402,7 @@ input[Selaria] , button[Selaria]{
 #PinnedsApplications{
     width: 613px;
     height: 153px;
-    background-color: rgba(0, 0, 0, 0.385);
+    background-color: rgba(0, 0, 0, 0.19);
     border-radius: 13px;
     z-index: 99999;
     margin: 0 auto;
@@ -419,7 +419,7 @@ input[Selaria] , button[Selaria]{
     top: 5px;
 }
 .PinnedApplication:hover{
-    background-color: rgba(0, 0, 0, 0.385);
+    background-color: rgba(0, 0, 0, 0.19);
 }
 #TopBar{
     width: 613px;
@@ -438,7 +438,7 @@ input[Selaria] , button[Selaria]{
     border-radius: 5px;
 }
 #TopBar #RightIcons svg:hover{
-    background-color: rgba(0, 0, 0, 0.385);
+    background-color: rgba(0, 0, 0, 0.19);
 }
 #PinnedsApplicationsText{
     font-weight: lighter;
@@ -465,7 +465,7 @@ input[Selaria] , button[Selaria]{
     margin: 0 auto;
 }
 .Application:hover{
-    background-color: rgba(0, 0, 0, 0.385);
+    background-color: rgba(0, 0, 0, 0.19);
 }
 .Application svg{
     position: relative;
@@ -490,18 +490,21 @@ input[Selaria] , button[Selaria]{
     width: 5px;
 }
 #ApplicationsContainer::-webkit-scrollbar-thumb{
-    background-color: rgba(0, 0, 0, 0.385);
+    background-color: rgba(0, 0, 0, 0.19);
     border-radius: 5px;
 }
 #ApplicationsContainer::-webkit-scrollbar-thumb:hover{
-    background-color: rgba(0, 0, 0, 0.549);
+    background-color: rgba(0, 0, 0, 0.19);
 }
-@keyframes fadeInAnimation {
+@keyframes ScreensaverAnimationFull{
     0% {
-        opacity: 0;
+        background-color: rgba(0, 0, 0, 0.25);
+    }
+    50% {
+        background-color: rgba(0, 0, 0, 0.1913);
     }
     100% {
-        opacity: 1;
+        background-color: rgba(0, 0, 0, 0.25);
     }
 }
 * {cursor: url(../cursors/default.png), default}

@@ -48,7 +48,7 @@ async function load()
     }else if(localStorage.getItem('Configured') != "true"){
         document.location.href="system_page/Obbe.html";
     }
-    if(localStorage.getItem('Password') != ""){
+    if(localStorage.getItem("Password") != ""){
         ShowUserControl("OFF" , "Login");
     }
     apps_title = {};

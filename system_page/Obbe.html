@@ -93,7 +93,7 @@
         var Tab = 1;
         function NextTab(){
             Tab = Tab + 1;
-            if(Tab > 3){
+            if(Tab > 2){
                 localStorage.setItem("Username", document.getElementById("Username").value);
                 localStorage.setItem("Password", document.getElementById("Password").value);
                 localStorage.setItem("Configured", "true");
@@ -171,17 +171,6 @@
             <br>
             <button onclick="javascript:PreviousTab();">Back !</button>
             <button Blue onclick="javascript:if(document.getElementById('Password').value!=document.getElementById('Password_Confirm').value){alert('The passwords are not the same');}else{NextTab();}">Next !</button>
-        </div>
-        <div id="Tab3" style="display: none;" class="Tab">
-            <h1>Add applications !</h1>
-            <h3>You can pre-install application for use her after configuration !</h3>
-            <input type="text" name="" id="app_name" placeholder="App name">
-            <input type="text" name="" id="app_url" placeholder="App url">
-            <br>
-            <button onclick="javascript:AddTheApp();">Create the app</button>
-            <br>
-            <button onclick="javascript:PreviousTab();">Back !</button>
-            <button Blue onclick="javascript:NextTab();">Next !</button>
         </div>
     </div>
 </body>
