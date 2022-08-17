@@ -6,9 +6,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script src="../ressources/FileSystem/dist/idbfs.js"></script>
+    <script src="../ressources/System/Software/MessageHandlerSoftware.js"></script>
     <script src="../../dist/winbox.bundle.js"></script>
     <link rel="stylesheet" href="../apps UI/ui.css">
     <link rel="stylesheet" href="../Icon UI/Icons.css">
+    <script>
+        parent.postMessage(`{
+"Action" : "CreateFS" ,
+"Name" : "SelariaHDD"
+}`)
+    </script>
 </head>
 <body>
 </body>

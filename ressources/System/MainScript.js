@@ -24,7 +24,7 @@ function open_app(path){
     apps[App_uuid] = new WinBox({
         class: ["win"],
         border: "0.15em",
-        url: path+"?ID="+App_uuid,
+        url: path,
         title: path,
         background: localStorage.getItem('window_color'),
         x: "center",
@@ -32,8 +32,12 @@ function open_app(path){
         top: "35px",
         root: document.body,
         Uuid: App_uuid,
-        id: "App_"+App_uuid,
+        id: App_uuid,
     });
+    for(Item in document.getElementsByTagName("iframe")){
+        Item.contentWindow.postMessage("{'UUID' : '"+App_uuid+"' }")
+    }
+    apps[App_uuid].title = document.getElementById(App_uuid).contentWindow.document.title
     if(document.getElementById("bar_menu_apps").style.visibility == "visible"){
         open_menu("bar_menu_apps");
     }
