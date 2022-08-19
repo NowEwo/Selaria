@@ -55,7 +55,7 @@ async function load()
     if(localStorage.getItem("Password") != ""){
         ShowUserControl("OFF" , "Login");
     }
-    var SelariaFileSystem = IDBFS.FileSystem("Selaria");
+    var SelariaFileSystem = new IDBFS.FileSystem("Selaria");
     apps_title = {};
     apps = {};
     var $_GET = [];
