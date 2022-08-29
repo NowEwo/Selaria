@@ -1,4 +1,4 @@
-var SelariaFileSystem = parent.SelariaFileSystem
+var SelariaFileSystem = IDBFS.FileSystem("Selaria");
 function CreateFile(Object){
     SelariaFileSystem.open(Object , "w");
 }

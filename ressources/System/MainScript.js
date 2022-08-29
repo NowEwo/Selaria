@@ -34,6 +34,7 @@ function open_app(path){
         Uuid: App_uuid,
         id: App_uuid,
     });
+    apps[App_uuid].i
     for(Item in document.getElementsByTagName("iframe")){
         Item.contentWindow.postMessage("{'UUID' : '"+App_uuid+"' }")
     }
@@ -226,5 +227,12 @@ function ShowImmersiveDialog(TITLE , TEXT , CANCELABLE=true , COMMAND=""){
 function TerminalModeO(){
     ShowImmersiveDialog("Terminal mode !" , "Click Continue to go on terminal mode ." , CANCELABLE=true , COMMAND="document.location.href='apps/terminal.html'");
 };
+document.addEventListener("dragover", (event) => {
+    event.preventDefault();
+  });
+document.addEventListener("drop", (Event) => {
+    Event.preventDefault();
+    open_app(Event.dataTransfer.getData("text/plain"));
+});
 var Background = localStorage.getItem("Background");
 var UserControlState = "OFF";
