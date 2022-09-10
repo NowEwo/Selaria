@@ -2,7 +2,7 @@
 ![bgdefault](https://user-images.githubusercontent.com/77587065/153614505-e5d863e2-0752-4a0c-8f5a-cf633ba010b2.png)
 ## avant toute choses
 Cet OS ne peux en aucun cas être utilisé en tant que système principal mais ce lance dans un navigateur web comme Google Chrome , Opera ou Firefox !
-Une version plus légère de Selaria ( Selaria Lite Version ) Est disponible et est disponible à : https://github.com/yannou000/Selaria-Lite-Version .
+Une version plus légère de Selaria ( Selaria Lite Version ) Est disponible et est disponible à : https://github.com/WolfyGreyWolf/Selaria-Lite-Version .
 ## Crédits
 le système de fenêtre WinBox a été crée par https://nextapps-de.github.io/winbox/
 
