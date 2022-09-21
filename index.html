@@ -30,6 +30,11 @@
                 <path fill-rule="evenodd" clip-rule="evenodd" d="M8.14106 17.6283C7.75054 17.2378 7.75053 16.6046 8.14105 16.2141L10.7927 13.5624C11.1832 13.1719 11.8164 13.1719 12.2069 13.5624L14.8586 16.2141C15.2491 16.6046 15.2491 17.2378 14.8586 17.6283L12.2069 20.2799C11.8164 20.6705 11.1832 20.6705 10.7927 20.2799L8.14106 17.6283ZM10.8222 17.5989C10.4479 17.2246 10.4479 16.6178 10.8222 16.2436V16.2436C11.1964 15.8693 11.8032 15.8693 12.1774 16.2435V16.2435C12.5517 16.6178 12.5517 17.2246 12.1774 17.5989V17.5989C11.8032 17.9731 11.1964 17.9731 10.8222 17.5989V17.5989Z" fill="white"/>
             </svg>
         </button>
+        <div id="GlobalMenu" style="display:inline-block;position: absolute;top: 0px;">
+            <button class="bar_button" onclick="open_app('apps/about.html')">About</button>
+            <button class="bar_button" onclick="open_app('apps/terminal.html')">Terminal</button>
+            <button class="bar_button" onclick="document.getElementById('Screensaver').style.display = 'block'">Screensaver</button>
+        </div>
         <button id="time_base_button" class="bar_button" style="position: fixed;right: 9px;" title="The local date !">Unable to find the date !</button>
     </div>
     <input type="text" name="" id="command_line" class="bar_button" onkeydown="var keyCode = ('which' in event) ? event.which : event.keyCode;if(keyCode == 13){javascript:eval(this.value);};">
@@ -170,6 +175,7 @@
         <button class="bar_button menu_button_long" onclick="javascript:open_app('apps/about.html');">About</button>
         <button class="bar_button menu_button_long" onclick="javascript:open_menu('command_line');">Command bar</button>
         <button class="bar_button menu_button_long" onclick="javascript:open_menu('notes');">Notes</button>
+        <button class="bar_button menu_button_long" onclick="javascript:ReloadGlobalMenu();">Reload global menu</button>
     </div>
     <div class="bar_menu" id="context_menu_O">
         <button class="bar_button menu_button_long" onclick="javascript:document.getElementById('Screensaver').style.display = 'block';">Screensaver</button>

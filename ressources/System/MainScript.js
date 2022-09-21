@@ -95,6 +95,13 @@ function apps_installer(){
         root: document.body,
     });
 }
+function ReloadGlobalMenu(){
+    document.getElementById("GlobalMenu").innerHTML=`
+    <button class="bar_button" onclick="open_app('apps/about.html')">About</button>
+    <button class="bar_button" onclick="open_app('apps/terminal.html')">Terminal</button>
+    <button class="bar_button" onclick="document.getElementById('Screensaver').style.display = 'block'">Screensaver</button>
+    `;
+}
 function error(error){
     document.location.href="system_page/important_error.html?error="+error;
 }
