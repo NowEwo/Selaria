@@ -1,0 +1,23 @@
+{
+  "server": {
+    "port": "443",
+    "dir": "www/",
+    "exitOnError": true,
+    "ssl": {
+      "enabled": true,
+      "key": "rolling.key",
+      "cert": "hating.crt"
+    }
+  },
+  "log": {
+    "error": {
+      "debug": true,
+      "enabled": true,
+      "path": "log/error.log",
+      "console": true
+    },
+    "warning": {
+      "enabled": true
+    }
+  }
+}

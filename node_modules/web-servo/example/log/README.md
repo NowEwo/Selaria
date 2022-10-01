@@ -1,0 +1,1 @@
+This directory is the log directory of the server

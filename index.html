@@ -5,14 +5,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="ressources/System/MessageHandlerCode.js"></script>
-    <script src="ressources/System/API/FileSystemAPI.js"></script>
     <script src="ressources/System/MainScript.js"></script>
     <link rel="stylesheet" href="Icon UI/Icons.css">
     <script src="https://rawcdn.githack.com/nextapps-de/winbox/0.2.5/dist/winbox.bundle.min.js"></script>
+    <script src="node_modules\localforage\dist\localforage.js"></script>
     <title>Selaria</title>
     <link rel="shortcut icon" href="ressources/logo/logo.ico" type="images/x-icon" />
     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
-    <script src="ressources/FileSystem/dist/idbfs.js"></script>
     <style>
         body{
             background-image: url("ressources/background/bgdefault.png");
@@ -20,7 +19,7 @@
     </style>
     <link rel="stylesheet" href="ressources/System/MainStyle.css">
 </head>
-<body onload="javascript:load();">
+<body>
     <div class="bar" id="bar_id">
         <button id="bar_base_button_O" class="bar_button" onclick="javascript:open_menu('bar_menu_O');" title="The menu for access the applications !">
             <svg width="19" height="19" viewBox="0 0 23 23" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -229,14 +228,11 @@
     </div>
 </body>
 <script>
-    setTimeout(function(){
-        document.body.style.backgroundImage = "url('ressources/background/bgdefault.png')";
-    }, 315);
     document.getElementById("Username").innerHTML = localStorage.getItem("Username");
     console.log(`
 ██ ██ █╬ ███ ███ █ ███   Welcome to Selaria "OS" !
 █▄ █▄ █╬ █▄█ █▄╬ █ █▄█   Don't white anything here if you don't know what you do !
 ▄█ █▄ ██ █╬█ █╬█ █ █╬█   Https://www.GitHub.Com/Yannou000/Selaria !
-    `);
+`);
 </script>
 </html>

@@ -94,12 +94,10 @@
         function NextTab(){
             Tab = Tab + 1;
             if(Tab > 2){
-                localStorage.setItem("Username", document.getElementById("Username").value);
-                localStorage.setItem("Password", document.getElementById("Password").value);
+                localStorage.setItem("Username" , document.getElementById("Username").value);
+                localStorage.setItem("Password" , document.getElementById("Password").value);
+                localStorage.setItem("notes" , "");
                 localStorage.setItem("Configured", "true");
-                var CreateFS = new IDBFS.FileSystem("Selaria");
-                CreateFS.mkdir("/Softwares");
-                CreateFS.mkdir("/Documents");
                 document.getElementById("Container").innerHTML = "<h1>The OBBE is over !</h1><br><h3>Please patient ...</h3>";
                 setTimeout(function(){
                     document.location.href = "../index.html";

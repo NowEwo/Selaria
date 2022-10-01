@@ -1,7 +1,0 @@
-
-  var IDBFS = require( "src/fs" );
-
-  return IDBFS;
-
-}));
-

@@ -1,0 +1,34 @@
+{
+  "server": {
+    "port": "443",
+    "dir": "www/",
+    "ssl": {
+      "enabled": true,
+      "key": "ssl/example.key",
+      "cert": "ssl/example.crt"
+    }
+  },
+  "page": {
+    "default": "index.html",
+    "script": "node.js"
+  },
+  "methods": {
+    "allowed": ["OPTIONS", "GET", "POST", "HEAD", "PUT", "PATCH", "DELETE", "COPY", "LINK", "UNLINK", "TRACE", "CONNECT"]
+  },
+  "log": {
+    "access": {
+      "enabled": true,
+      "path": "log/access.log",
+      "console": false
+    },
+    "error": {
+      "debug": true,
+      "enabled": true,
+      "path": "log/error.log",
+      "console": true
+    },
+    "warning": {
+      "enabled": true
+    }
+  }
+}

@@ -1,3 +1,6 @@
+console.time("Boot");
+console.group("Loading");
+console.log("Defining the Func and Uuid functions !");
 function func() {
     return ( ( ( 1+Math.random() ) * 0x10000 ) | 0 ).toString( 16 ).substring( 1 );
 }
@@ -6,6 +9,8 @@ function Uuid(){
     UUID = (func() + func() + "-" + func() + "-3" + func().substr(0,2) + "-" + func() + "-" + func() + func() + func()).toLowerCase();
     return UUID;
 }
+console.group("Starting the shell");
+console.log("Defining the taskbar menus system");
 function open_menu(id)
 {
     if(document.getElementById(id).style.visibility=="hidden")
@@ -18,6 +23,7 @@ function open_menu(id)
         }
     return true;
 }
+console.log("Defining the softwares system");
 function open_app(path){
     App_uuid = Uuid()
     apps_title[App_uuid] = path
@@ -46,30 +52,37 @@ function open_app(path){
         open_menu("bar_menu_O");
     }
 }
+console.groupEnd("Loading");
+console.group("Booting");
 async function load()
 {
+    console.log("Executing the LocalStorage verification");
     if(localStorage.getItem('localStorageVerification') == undefined){
+        console.error("Error on the Localstorage");
         document.location.href="system_page/important_error.html?error=localStorageCorrupted";
     }else if(localStorage.getItem('Configured') != "true"){
+        console.error("Selaria is not configured well redirecting to OBBE");
         document.location.href="system_page/Obbe.html";
     }
+    console.log("Executing the password verification");
     if(localStorage.getItem("Password") != ""){
+        console.warn("No password detected");
         ShowUserControl("OFF" , "Login");
     }
-    var SelariaFileSystem = new IDBFS.FileSystem("Selaria");
+    console.log("Defining shell varibles");
     apps_title = {};
     apps = {};
+    console.log("Get the boot arguments");
     var $_GET = [];
     var parts = window.location.search.substr(1).split("&");
     for (var i = 0; i < parts.length; i++){
         var temp = parts[i].split("=");
         $_GET[decodeURIComponent(temp[0])] = decodeURIComponent(temp[1]);
     }
-    if(typeof $_GET["Command"]!=undefined){
-        return eval($_GET["Command"])
-    }
+    console.log("Defining the notes content");
     document.getElementById("notes").value = localStorage.getItem('notes');
     var selected = "none";
+    console.log("Detecting the device used");
     if( navigator.userAgent.match(/iPhone/i)
      || navigator.userAgent.match(/webOS/i)
      || navigator.userAgent.match(/Android/i)
@@ -79,13 +92,16 @@ async function load()
      || navigator.userAgent.match(/Windows Phone/i)
      ){
          if($_GET["fromphone"]=="true"){
-             return true;
+            return true;
          }
          else{
-             document.location.href="index mobile.html";
+            console.warn("Device is mobile");
+            console.warn("Rediceting to thge mobile Index");
+            document.location.href="index mobile.html";
          }
     };
 }
+console.log("Defining shell functions");
 function apps_installer(){
     new WinBox('Apps Installer', {
         border: "0px",
@@ -118,10 +134,12 @@ function notification(title, message, command){
         document.getElementById("Notification").style.textAlign = "left";
     }, 5000);
 }
+console.log("Running the clock");
 function allsecondsfunction(){
     document.getElementById('time_base_button').innerHTML=new Date().toLocaleTimeString();
 }
 setInterval(allsecondsfunction, 1000);
+console.log("Loading the context menu");
 document.addEventListener('contextmenu', function (e){
     var context_menu = document.getElementById('context_menu_desktop');
     context_menu.style.display = 'none';
@@ -176,6 +194,7 @@ document.addEventListener('click', function (e){
     context_menu.style.display = 'none';
     context_menu.style.visibility = 'hidden';
 });
+console.log("Defining shell functions");
 function SetBackground(ID , STATE){
     if(STATE == "ON"){
         document.getElementById("App_"+ID).style.display = "none";
@@ -234,6 +253,7 @@ function ShowImmersiveDialog(TITLE , TEXT , CANCELABLE=true , COMMAND=""){
 function TerminalModeO(){
     ShowImmersiveDialog("Terminal mode !" , "Click Continue to go on terminal mode ." , CANCELABLE=true , COMMAND="document.location.href='apps/terminal.html'");
 };
+console.log("Loading the drag-and-drop");
 document.addEventListener("dragover", (event) => {
     event.preventDefault();
   });
@@ -241,5 +261,9 @@ document.addEventListener("drop", (Event) => {
     Event.preventDefault();
     open_app(Event.dataTransfer.getData("text/plain"));
 });
+console.log("Defining the Background and the username and the UAC state");
 var Background = localStorage.getItem("Background");
 var UserControlState = "OFF";
+load();
+console.groupEnd("Booting");
+console.timeEnd("Boot");
