@@ -10,19 +10,8 @@ l'application Minecraft : https://classic.minecraft.net par Mojang
 ## mise en route
 Selaria est très simple à utiliser :
 
-le fichier a ouvrir pour s'en servir est : index.html
+le fichier a ouvrir pour s'en servir est : Main.exe ( Windows ) ou Main.py ( Cross-platform )
 ![image](https://user-images.githubusercontent.com/77587065/158867478-72ad6bee-730c-4e26-916d-305803ea9767.png)
-
-## Comparaison avec Selaria Lite
-
-|Fonctionnalité|Selaria Lite|Selaria|
-|:---|:---|:---|
-|Applications intégrées|~|Oui|
-|Effets de transparences|Non(Sauf OBBE)|Oui|
-|Animations|Oui|Oui|
-|OBBE|Oui|Oui|
-|Terminal|Oui|Oui|
-|Librairies optionnelles|~|Oui|
 
 ## développement d'application
 
