@@ -82,24 +82,6 @@ async function load()
     console.log("Defining the notes content");
     document.getElementById("notes").value = localStorage.getItem('notes');
     var selected = "none";
-    console.log("Detecting the device used");
-    if( navigator.userAgent.match(/iPhone/i)
-     || navigator.userAgent.match(/webOS/i)
-     || navigator.userAgent.match(/Android/i)
-     || navigator.userAgent.match(/iPad/i)
-     || navigator.userAgent.match(/iPod/i)
-     || navigator.userAgent.match(/BlackBerry/i)
-     || navigator.userAgent.match(/Windows Phone/i)
-     ){
-         if($_GET["fromphone"]=="true"){
-            return true;
-         }
-         else{
-            console.warn("Device is mobile");
-            console.warn("Rediceting to thge mobile Index");
-            document.location.href="index mobile.html";
-         }
-    };
 }
 console.log("Defining shell functions");
 function apps_installer(){
