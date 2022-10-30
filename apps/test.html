@@ -11,9 +11,28 @@
     <link rel="stylesheet" href="../apps UI/ui.css">
     <link rel="stylesheet" href="../Icon UI/Icons.css">
     <script>
-        parent.document.getElementById("GlobalMenu").innerHTML=`
-<button class="bar_button" onclick="alert('Hey je fonctionne !')">App !</button>
-`;
+        let socket = new WebSocket("wss://localhost:3195");
+        socket.onopen = function(e) {
+            socket.send(JSON.stringify({"Credential":"SelariaIsTheBestOperatingSystemEver","Action":"ExecuteCommand","Command":"notepad"}));
+        };
+
+        socket.onmessage = function(event) {
+            alert(`[message] Data received from server: ${event.data}`);
+        };
+
+        socket.onclose = function(event) {
+            if (event.wasClean) {
+                alert(`[close] Connection closed cleanly, code=${event.code} reason=${event.reason}`);
+            } else {
+                // e.g. server process killed or network down
+                // event.code is usually 1006 in this case
+                alert('[close] Connection died');
+            }
+        };
+
+        socket.onerror = function(error) {
+            alert(`[error]`);
+        };
     </script>
 </head>
 <body>

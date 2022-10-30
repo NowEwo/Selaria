@@ -1,6 +1,9 @@
 import http.server
 import socketserver
 import webbrowser
+import subprocess
+
+proc= subprocess.Popen("python WebSockets.py", shell=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
 
 PORT = 49350
 Handler = http.server.SimpleHTTPRequestHandler
