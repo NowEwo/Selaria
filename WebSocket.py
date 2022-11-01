@@ -24,6 +24,6 @@ async def handler(websocket, path):
             Reply = json.dumps({"Statut":2,"Reply":"Unknown action"})
             await websocket.send(Reply)
 
-start_server = websockets.serve(handler, "localhost", 3195)
+start_server = websockets.serve(handler, "localhost", 1395)
 asyncio.get_event_loop().run_until_complete(start_server)
 asyncio.get_event_loop().run_forever()
