@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="../apps UI/ui.css">
     <link rel="stylesheet" href="../Icon UI/Icons.css">
     <script>
-        let socket = new WebSocket("wss://localhost:3195");
+        let socket = new WebSocket("ws://localhost:1395");
         socket.onopen = function(e) {
             socket.send(JSON.stringify({"Credential":"SelariaIsTheBestOperatingSystemEver","Action":"ExecuteCommand","Command":"notepad"}));
         };
@@ -24,8 +24,6 @@
             if (event.wasClean) {
                 alert(`[close] Connection closed cleanly, code=${event.code} reason=${event.reason}`);
             } else {
-                // e.g. server process killed or network down
-                // event.code is usually 1006 in this case
                 alert('[close] Connection died');
             }
         };
